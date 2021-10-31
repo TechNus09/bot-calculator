@@ -234,7 +234,7 @@ async def selectionTest(ctx,curLv,tarLv):
 
 @bot.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+    print(f'Logged in as {bot.user}!')
     await bot.change_presence(activity=d.Game(name="Calculator"))
 
 
