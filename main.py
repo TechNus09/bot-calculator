@@ -135,7 +135,7 @@ def tabfill(xp):
             a = round((((xp- lvltab[l]) / lvldef[l])*100),2)
     return lvl, a
 
-def getxp( lv, nlv, per, nper ):
+def getxp( lv, nlv, per = 0, nper = 0 ):
         minxp= lvltab[lv-1] + (lvldef[lv-1]*(per/100))
         bigxp= lvltab[nlv-1] + (lvldef[nlv-1]*(nper/100))
         XPneeded = round(bigxp - minxp)
