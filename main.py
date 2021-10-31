@@ -1,7 +1,9 @@
 import asyncio
 import discord as d
-from discord.ext import commands
 from discord.utils import get
+from discord.ext import commands
+from discord_components import Button, Select, SelectOption, ComponentsBot, component, interaction
+import math
 import os
 
 
@@ -32,8 +34,7 @@ lvldef = [46, 53, 60, 70, 80, 92, 106, 121, 140, 160, 184, 212, 243, 280, 321, 3
 387409211, 445016324, 511189519, 587202560]
 
 
-skis = ['','-mining', '-smithing', '-woodcutting', '-crafting', '-fishing', '-cooking']
-skils = ['combat','mining', 'smithing', 'woodcutting', 'crafting', 'fishing', 'cooking']
+
 
 
 
@@ -47,36 +48,50 @@ combat={"bat" : 8 ,"slime" : 16 ,"fishing_spider" : 38,"mashroom" : 46,"forest_s
 "baby_dragon" : 5750 ,"gold_snake" : 1000 ,"brown_snake" : 1000 ,"purple_snake" : 1000 ,"sandstone_golem" : 11500 ,
 "cursed_totem" : 1 ,"war_bat" : 1200 ,"rock_demon" : 10000 , "spinus" : 8500 ,"ancient_war_bat" : 12000 ,
 "ice_Demon" : 16500 ,"reanimated_soul" : 1000 ,"golem" : 22500 ,"umbra" : 24000 ,"mummy" : 20000 }
-mining={"tinO": 10, "copperO": 10, "IronO" : 50,"saltO": 80, "coalO": 115, "silverO": 135, "crimsteelO": 350,
-"goldO": 400, "pinksaltO" : 500, "mythanO": 650, "sandstoneO": 1100, "cobaltO": 1200, "varaxiumO": 1800, "blacksaltO": 2500}
-smelting ={ "BronzeB" : 24, "ironB" : 8,	"steelB" : 14 , "crimsteelB" : 25,
-"silverB" : 50,"goldN" : 60,"goldB" : 60,"mythanB" : 100,"cobaltB" : 200,"varaxiteB" : 350}
-smithing ={ "BronzeB" : 5, "ironB" : 14,"steelB" : 20 , "crimsteelB" : 130,
-"silverB" : 1000,"goldB" : 20000,"mythanB" : 5000,"cobaltB" : 15000,"varaxiteB" : 20000}
-woodcutting={"pine": 10,"deadlog": 20,"birch": 50,"applewood": 115,"willow": 350,"oak": 475,
-"chestnut": 650,"maple": 1200,"Olive": 1800,"palm": 2600}
-crafting={"accuracyRelic":3 ,"guardingRelic":8 ,"healRelic":18 ,"wealthRelic":40 ,"powerRelic":105 ,"natureRelic":200 ,
-"fireRelic":425 ,"damageRelic":900 ,"leechRelic":1400 ,"expRelic":1850 ,"cursedRelic":2750}
-fishing={"anchovies":10,"goldfish":20,"mackerel":50,"squid":115,"sardine":375,"eel":500,"anglerfish":625,
-"trout":750,"jellyfish":900,"bass":1350,"herringbone":1700,"tuna":2000,"lobster":3500,"sea_turtle":6500,
-"manta_ray":9500,"shark":14500,"orca":29500,"giant_squid":55000}
-cooking={"anchovies":10,"mackerel":50,"squid":115,"sardine":375,"eel":500,"anglerfish":30,
-"trout":750,"bass":1350,"tuna":2000,"lobster":3500,"sea_turtle":6500,
-"manta_ray":9500,"shark":13500,"orca":22500,"giant_squid":41500}
-miningresc=["tinO","copperO","IronO","saltO","coalO","silverO","crimsteelO",
-"goldO","pinksaltO","mythanO","sandstoneO","cobaltO","varaxiumO","blacksaltO"]
-smithingresc =["BronzeB","ironB","steelB","crimsteelB","silverB","goldN",
-"goldB","mythanB","cobaltB","varaxiteB"]
-woodcuttingresc=["pine","deadlog","birch","applewood","willow","oak","chestnut",
-"maple","Olive","palm"]
-craftingresc=["accuracyRelic","guardingRelic","healRelic","wealthRelic",
-"powerRelic","natureRelic","fireRelic","damageRelic","leechRelic","expRelic",
-"cursedRelic"]
-fishingresc=["anchovies","goldfish","mackerel","squid","sardine","eel","anglerfish",
-"trout","jellyfish","bass","herringbone","tuna","lobster","sea_turtle","manta_ray",
-"shark","orca","giant_squid"]
-cookingresc=["anchovies","mackerel","squid","sardine","eel","anglerfish","trout",
-"bass","tuna","lobster","sea_turtle","manta_ray","shark","orca","giant_squid"]
+
+
+
+
+
+skills = ['Mining','Smithing','Woodcutting','crafting','Fishing','Cooking']
+
+miningRsc=["Tin Ore","Copper Ore","Iron Ore","Salt","Coal","Silver Ore","Crimsteel Ore",
+"Gold Ore","PinkSalt","Mythan Ore","Sandstone","Cobalt Ore","Varaxium","BlackSalt"]
+smithingRsc =["Bronze Bar","Iron Bar","Steel Bar","Crimsteel Bar","Silver Bar","Gold Nugget",
+"Gold Bar","Mythan Bar","Cobalt Bar","Varaxite Bar"]
+woodcuttingRsc=["Pine Log","Dead Log","Birch Log","Applewood","Willow Log","Oak Log","Chestnut Log",
+"Maple Log","Olive Log","Palm Wood"]
+craftingRsc=["Accuracy Relic","Guarding Relic","Healing Relic","Wealth Relic",
+"Power Relic","Nature Relic","Fire Relic","Damage Relic","Leeching Relic","Experience Relic",
+"Cursed Relic"]
+fishingRsc=["Anchovies", "Goldfish", "Mackerel", "Squid", "Sardine", "Eel", "Anglerfish", 
+"Trout", "Jellyfish", "Bass", "Herringbone", "Tuna", "Lobster", "Sea Turtle", "Manta Ray", 
+"Shark", "Orca", "Giant Squid"]
+cookingRsc=["Cooked Anchovies", "Cooked Mackerel", "Cooked Squid", "Cooked Sardine", "Cooked Eel", 
+"Cooked Anglerfish", "Cooked Trout", "Cooked Bass", "Cooked Tuna", "Cooked Lobster", 
+"Cooked Sea Turtle", "Cooked Manta Ray", "Cooked Shark", "Cooked Orca", "Cooked Giant Squid"]
+
+resources = {
+"Tin Ore": 10, "Copper Ore": 10, "Iron Ore" : 50,"Salt": 80, "Coal": 115, "Silver Ore": 135, "Crimsteel Ore": 350,
+"Gold Ore": 400, "PinkSalt" : 500, "Mythan Ore": 650, "Sandstone": 1100, "Cobalt Ore": 1200, "Varaxium": 1800, "BlackSalt": 2500,
+"Bronze Bar" : 5, "Iron Bar" : 14,"Steel Bar" : 20 , "Crimsteel Bar" : 130,
+"Silver Bar" : 1000,"Gold Bar" : 20000,"Mythan Bar" : 5000,"Cobalt Bar" : 15000,"Varaxite Bar" : 20000,
+"Pine Log": 10,"Dead Log": 20,"Birch Log": 50,"Applewood": 115,"Willow Log": 350,"Oak Log": 475,
+"Chestnut Log": 650,"Maple Log": 1200,"Olive Log": 1800,"Palm Wood": 2600,
+"Accuracy Relic":3 ,"Guarding Relic":8 ,"Healing Relic":18 ,"Wealth Relic":40 ,"Power Relic":105 ,"Nature Relic":200 ,
+"Fire Relic":425 ,"Damage Relic":900 ,"leeching Relic":1400 ,"Experience Relic":1850 ,"Cursed Relic":2750,
+"Anchovies":10,"Goldfish":20,"Mackerel":50,"Squid":115,"Sardine":375,"Eel":500,"Anglerfish":625,
+"Trout":750,"Jellyfish":900,"Bass":1350,"Herringbone":1700,"Tuna":2000,"Lobster":3500,"Sea Turtle":6500,
+"Manta Ray":9500,"Shark":14500,"Orca":29500,"Giant Squid":55000,
+"Cooked Anchovies":10,"Cooked Mackerel":50,"Cooked Squid":115,"Cooked Sardine":375,"Cooked Eel":500,"Cooked Anglerfish":30,
+"Cooked Trout":750,"Cooked Bass":1350,"Cooked Tuna":2000,"Cooked Lobster":3500,"Cooked Sea Turtle":6500,
+"Cooked Manta Ray":9500,"Cooked Shark":13500,"Cooked Orca":22500,"Cooked Giant Squid":41500}
+
+skill_rsc = [miningRsc, smithingRsc, woodcuttingRsc, craftingRsc, fishingRsc,cookingRsc]
+
+
+
+
 combatresc=["bat","slime","fishing_spider","mashroom","forest_spider","forest_bat",
 "snow_bat","ice_slime","snowman","ice_spider",
 "skeletal_snake","cave_spider","skeletal_bat","sapphire_scarab","cave_bat","scorpion",
@@ -90,9 +105,9 @@ combatresc=["bat","slime","fishing_spider","mashroom","forest_spider","forest_ba
 "purple_snake","sandstone_golem","cursed_totem","war_bat","rock_demon","spinus",
 "ancient_war_bat","ice_Demon","reanimated_soul",
 "golem","umbra","mummy"]
-skills=["combat", "mining", "smithing", "woodcutting", "crafting", "fishing", "cooking"]
-skillss={"combat": combatresc, "mining": miningresc, "smithing":smithingresc, "woodcutting":woodcuttingresc, "crafting": craftingresc, "fishing":fishingresc, "cooking":cookingresc}
-skillsss={"combat": combat, "mining": mining, "smithing":smithing, "woodcutting":woodcutting, "crafting": crafting, "fishing":fishing, "cooking":cooking}
+
+
+
 lvltab = [0,46,99,159,229,309,401,507,628,768,928,1112,1324,1567,1847,2168,2537,2961,3448,4008,4651,5389,6237,7212,8332,9618,11095,12792,14742,16982,19555,22510,25905,29805,34285,
 39431,45342,52132,59932,68892,79184,91006,104586,120186,138106,158690,182335,209496,240696,276536,317705,364996,419319,481720,553400,635738,730320,838966,963768,1107128,1271805,
 1460969,1678262,1927866,2214586,2543940,2922269,3356855,3856063,4429503,5088212,5844870,6714042,7712459,8859339,10176758,11690075,13428420,15425254,17719014,20353852,23380486,
@@ -105,6 +120,12 @@ lvldef = [46, 53, 60, 70, 80, 92, 106, 121, 140, 160, 184, 212, 243, 280, 321, 3
 3476690, 3993668, 4587520, 5269676, 6053268, 6953380, 7987336, 9175040, 10539353, 12106537, 13906760, 15974672, 18350080, 21078706, 24213075, 27813520, 31949344, 36700160, 42157413, 
 48426151, 55627040, 63898689, 73400320, 84314826, 96852302, 111254081, 127797379, 146800640, 168629653, 193704605, 222508162, 255594759, 293601280, 337259307, 387409211, 445016324, 
 511189519, 587202560]
+
+bot = ComponentsBot('*')
+bot.remove_command('help')
+
+
+
 def tabfill(xp):    
     lvl=0
     a=0
@@ -119,19 +140,58 @@ def getxp( lv, nlv, per, nper ):
         bigxp= lvltab[nlv-1] + (lvldef[nlv-1]*(nper/100))
         XPneeded = round(bigxp - minxp)
         return XPneeded
+    
+async def selectionTest(ctx,curLv,tarLv):
+    await ctx.send(content='Skill :',components=[Select(
+        placeholder='Select Skill !',
+        options=[
+            SelectOption(label='⛏ Mining',value='0'),
+            SelectOption(label='⚒ Smiting',value='1'),
+            SelectOption(label='🪓 woodcutting',value='2'),
+            SelectOption(label='🔨 Crafting',value='3'),
+            SelectOption(label='🎣 Fishing',value='4'),
+            SelectOption(label='🍽 Cooking',value='5'),
+            SelectOption(label='🚫 Cancel',value='Cancel')
+            
+            ],custom_id='SelectSkill'
+    )])
+    interaction = await bot.wait_for('select_option',
+    check=lambda inter: inter.custom_id == 'SelectSkill' and inter.user == ctx.author)
+    
+    choice = interaction.values[0]
+    if choice == 'Cancel' :
+        await interaction.send('You have canceled the interaction')
+    
+    else:
+        rsc_list = skill_rsc[int(choice)]
+        temp_list = []
+        for i in range(len(rsc_list)):
+            temp_list.append(SelectOption(label=rsc_list[i],value=str(i+1)))
+        temp_list.append(SelectOption(label="Cancel",value="Cancel"))
+        await ctx.send(content='Resource :',components=[Select(
+        placeholder='Select Resource !',
+        options=temp_list
+        
+        ,custom_id='SelectRsc'
+        )])
+        interaction1 = await bot.wait_for('select_option',
+        check=lambda inter: inter.custom_id == 'SelectRsc' and inter.user == ctx.author)
+        
+        choice1 = interaction1.values[0]
+        if choice1 == 'Cancel' :
+            await interaction1.send('You have canceled the interaction')
 
-def show(skill):
-    string = "| "
-    temp_rsc = skillss[skill]
-    for i in range(len(temp_rsc)):
-        string = string + temp_rsc[i]+ ' | '
-    return string
+        else:
+            rsc_used = skill_rsc[int(choice)][int(choice1)-1]
+            rsc_xp = resources[rsc_used]
+            xp_needed = getxp(int(curLv),int(tarLv))
+            rsc_needed = math.ceil(xp_needed / rsc_xp) + 1
+            result = 'Skill : ' + skills[int(choice)] + '\n Resource : ' + skill_rsc[int(choice)][int(choice1)-1] + '\n Current Lvl : ' + curLv + '\n target Lvl : ' + tarLv + '\n Quantity Needed : ' + str(rsc_needed)
+            
+            await ctx.send(result)
+
 
 ###########################################################################################
-
-
-bot = commands.Bot(command_prefix='*')
-client = d.Client()
 
 
 
@@ -145,29 +205,38 @@ async def on_ready():
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send("pong")
-
-@bot.command()
-async def calc(ctx,skill_name,curr_lvl,curr_perc,tar_lvl,tar_perc,rsc):
-
-    rescneeded=round(getxp( int(curr_lvl), int(tar_lvl), int(curr_perc), int(tar_perc) )/skillsss[skill_name][rsc])
-    invneeded=round(rescneeded/36)
-
-    if skill_name == 'combat' :
-        msg = f'you need {rescneeded} of {rsc}'
-    else:
-        msg = f'you need {rescneeded} of {rsc} (approximately {invneeded} inventories)'
+    await ctx.send(f"Pong! {round(bot.latency * 1000)}ms")
     
-    await ctx.send(msg)
+@bot.command()
+async def calc(ctx,curLv,tarLv):
+    await selectionTest(ctx,curLv,tarLv)
 
 @bot.command()
-async def how(ctx):
-    help_msg = f' *calc [skill_name] [current_lvl] [current_%] [target_lvl] [target_%] [rescource_name]'
+async def invite(ctx):
+    member = ctx.author
+    channel = await member.create_dm()
+    await channel.send('https://discord.com/api/oauth2/authorize?client_id=891750013774991370&permissions=39936&scope=bot')
+
+@bot.command()
+async def help(ctx):
+    ping_msg = f'*ping : Show Ping'
+    calc_msg = f'*calc [current_lvl] [target_lvl]'
+    invite_msg = f"*invite : Send Bot's Invite Link to DM"
+    help_msg = ping_msg + '\n' + calc_msg + '\n' + invite_msg
     await ctx.send(help_msg)
 
-@bot.command()
-async def rsc_of(ctx,skill_name):
-    resources = show(skill_name)
-    await ctx.send(resources)
+@bot.event
+async def  on_command_error(ctx, error):
+    if isinstance(error, commands.MissingPermissions):
+        await ctx.send("You can't do that ;-;")
+    elif isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send("Please enter all the required arguments \n*calc [current_lvl] [target_lvl]")
+    elif isinstance(error, commands.MemberNotFound):
+        await ctx.send("Member not found, Please mention a valid user!")
+    elif isinstance(error, commands.BotMissingPermissions):
+        await ctx.send("I don't have the permissions to do that!")
+    else:
+        raise error
+
 
 bot.run(os.environ.get("TOKEN"))
