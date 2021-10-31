@@ -221,7 +221,7 @@ async def selectionTest(ctx,curLv,tarLv):
                 bst_used = boostsValues[bst_name]
                 xp_needed = getxp(int(curLv),int(tarLv))
                 rsc_needed = math.ceil(xp_needed / rsc_xp) + 1
-                rsc_needed_boosted = math.ceil(rsc_needed * bst_used)
+                rsc_needed_boosted = math.ceil(rsc_needed / bst_used)
                 result = 'Skill : ' + skills[int(choice)] + '\n Resource : ' + skill_rsc[int(choice)][int(choice1)-1] + '\n Current Lvl : ' + curLv + '\n target Lvl : ' + tarLv + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + str(rsc_needed_boosted)
                 
                 await ctx.send(result)
