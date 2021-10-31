@@ -87,6 +87,20 @@ resources = {
 "Cooked Trout":750,"Cooked Bass":1350,"Cooked Tuna":2000,"Cooked Lobster":3500,"Cooked Sea Turtle":6500,
 "Cooked Manta Ray":9500,"Cooked Shark":13500,"Cooked Orca":22500,"Cooked Giant Squid":41500}
 
+
+Combat_boosts = ["NoBoost","XpRelics","XpPotion","XpRelics+XpPotion","WorldBoost","XpRelics+WorldBoost","XpPotion+WorldBoost","XpRelics+XpPotion+WorldBoost"]
+Mining_boosts = ["NoBoost","ProsNeck","WorldBoost","ProsNeck+WorldBoost"]
+Smithing_boosts = ["NoBoost","InfHammer","InfRing","InfHammer+InfRing","WorldBoost","hammer+WorldBoost","Ring+WorldBoost","Hammer+Ring+WorldBoost"]
+Woodcutting_boosts = ["NoBoost","World Boost"]
+Crafting_boosts = ["NoBoost","World Boost"]
+Fishing_boosts = ["NoBoost","World Boost"]
+Cooking_boosts = ["NoBoost","World Boost"]
+boostsValues = {"NoBoost":1.0,"InfHammer":1.04,"InfRing":1.04,"XpRelics":1.05,"XpPotion":1.05,"ProsNeck":1.05,"InfHammer+InfRing":1.0816,"XpRelics+XpPotion":1.1025,"WorldBoost":1.5,"hammer+WorldBoost":1.56,"Ring+WorldBoost":1.56,"XpRelics+WorldBoost":1.575,"XpPotoin+WorldBoost":1.575,"ProsNeck+WorldBoost":1.575,"Hammer+Ring+WorldBoost":1.6224,"XpRelics+XpPotoin+WorldBoost":1.65375}
+
+
+boosts = [Mining_boosts,Smithing_boosts,Woodcutting_boosts,Crafting_boosts,Fishing_boosts,Cooking_boosts]
+
+
 skill_rsc = [miningRsc, smithingRsc, woodcuttingRsc, craftingRsc, fishingRsc,cookingRsc]
 
 
@@ -182,13 +196,36 @@ async def selectionTest(ctx,curLv,tarLv):
             await interaction1.send('You have canceled the interaction')
 
         else:
-            rsc_used = skill_rsc[int(choice)][int(choice1)-1]
-            rsc_xp = resources[rsc_used]
-            xp_needed = getxp(int(curLv),int(tarLv))
-            rsc_needed = math.ceil(xp_needed / rsc_xp) + 1
-            result = 'Skill : ' + skills[int(choice)] + '\n Resource : ' + skill_rsc[int(choice)][int(choice1)-1] + '\n Current Lvl : ' + curLv + '\n target Lvl : ' + tarLv + '\n Quantity Needed : ' + str(rsc_needed)
+            boost_list = boosts[int(choice)]
+            temp_list1 = []
+            for i in range(len(boost_list)):
+                temp_list1.append(SelectOption(label=boost_list[i],value=str(i+1)))
+            temp_list1.append(SelectOption(label="Cancel",value="Cancel"))
+            await ctx.send(content='Boost :',components=[Select(
+            placeholder='Select Boost !',
+            options=temp_list1
             
-            await ctx.send(result)
+            ,custom_id='SelectBst'
+            )])
+            interaction2 = await bot.wait_for('select_option',
+            check=lambda inter: inter.custom_id == 'SelectBst' and inter.user == ctx.author)
+            
+            choice2 = interaction2.values[0]
+            if choice2 == 'Cancel' :
+                await interaction1.send('You have canceled the interaction')
+
+            else:
+                rsc_used = skill_rsc[int(choice)][int(choice1)-1]
+                rsc_xp = resources[rsc_used]
+                bst_name = boost_list[int(choice2)-1]
+                bst_used = boostsValues[bst_name]
+                xp_needed = getxp(int(curLv),int(tarLv))
+                rsc_needed = math.ceil(xp_needed / rsc_xp) + 1
+                rsc_needed_boosted = math.ceil(rsc_needed * bst_used)
+                result = 'Skill : ' + skills[int(choice)] + '\n Resource : ' + skill_rsc[int(choice)][int(choice1)-1] + '\n Current Lvl : ' + curLv + '\n target Lvl : ' + tarLv + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + str(rsc_needed_boosted)
+                
+                await ctx.send(result)
+
 
 
 ###########################################################################################
