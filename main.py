@@ -195,7 +195,7 @@ async def selectionTest(ctx,curLv,tarLv):
 
 
 
-@client.event
+@bot.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=d.Activity(type=d.ActivityType.watching, name="Calculator"))
