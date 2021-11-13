@@ -91,10 +91,10 @@ resources = {
 Combat_boosts = ["NoBoost","XpRelics","XpPotion","XpRelics+XpPotion","WorldBoost","XpRelics+WorldBoost","XpPotion+WorldBoost","XpRelics+XpPotion+WorldBoost"]
 Mining_boosts = ["NoBoost","ProsNeck","WorldBoost","ProsNeck+WorldBoost"]
 Smithing_boosts = ["NoBoost","InfHammer","InfRing","InfHammer+InfRing","WorldBoost","hammer+WorldBoost","Ring+WorldBoost","Hammer+Ring+WorldBoost"]
-Woodcutting_boosts = ["NoBoost","World Boost"]
-Crafting_boosts = ["NoBoost","World Boost"]
-Fishing_boosts = ["NoBoost","World Boost"]
-Cooking_boosts = ["NoBoost","World Boost"]
+Woodcutting_boosts = ["NoBoost","WorldBoost"]
+Crafting_boosts = ["NoBoost","WorldBoost"]
+Fishing_boosts = ["NoBoost","WorldBoost"]
+Cooking_boosts = ["NoBoost","WorldBoost"]
 boostsValues = {"NoBoost":1.0,"InfHammer":1.04,"InfRing":1.04,"XpRelics":1.05,"XpPotion":1.05,"ProsNeck":1.05,"InfHammer+InfRing":1.0816,"XpRelics+XpPotion":1.1025,"WorldBoost":1.5,"hammer+WorldBoost":1.56,"Ring+WorldBoost":1.56,"XpRelics+WorldBoost":1.575,"XpPotoin+WorldBoost":1.575,"ProsNeck+WorldBoost":1.575,"Hammer+Ring+WorldBoost":1.6224,"XpRelics+XpPotoin+WorldBoost":1.65375}
 
 
