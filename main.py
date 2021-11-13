@@ -149,13 +149,13 @@ def tabfill(xp):
             a = round((((xp- lvltab[l]) / lvldef[l])*100),2)
     return lvl, a
 
-def getxp( lv, nlv, per = 0, nper = 0 ):
+def getxp( lv, nlv, per, nper):
         minxp= lvltab[lv-1] + (lvldef[lv-1]*(per/100))
         bigxp= lvltab[nlv-1] + (lvldef[nlv-1]*(nper/100))
         XPneeded = round(bigxp - minxp)
         return XPneeded
     
-async def selectionTest(ctx,curLv,tarLv):
+async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
     await ctx.send(content='Skill :',components=[Select(
         placeholder='Select Skill !',
         options=[
@@ -219,7 +219,7 @@ async def selectionTest(ctx,curLv,tarLv):
                 rsc_xp = resources[rsc_used]
                 bst_name = boost_list[int(choice2)-1]
                 bst_used = boostsValues[bst_name]
-                xp_needed = getxp(int(curLv),int(tarLv))
+                xp_needed = getxp(int(curLv),int(tarLv),into(curPerc),int(tarPerc))
                 rsc_needed = math.ceil(xp_needed / rsc_xp) + 1
                 rsc_needed_boosted = math.ceil(rsc_needed / bst_used)
                 result = 'Skill : ' + skills[int(choice)] + '\n Resource : ' + skill_rsc[int(choice)][int(choice1)-1] + '\n Current Lvl : ' + curLv + '\n target Lvl : ' + tarLv + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + str(rsc_needed_boosted)
@@ -245,8 +245,12 @@ async def ping(ctx):
     await ctx.send(f"Pong! {round(bot.latency * 1000)}ms")
     
 @bot.command()
-async def calc(ctx,curLv,tarLv):
-    await selectionTest(ctx,curLv,tarLv)
+async def calc(ctx,curLv,tarLv,curPerc=none,tarPerc=none):
+    if curPerc=none:
+        curPerc='0'
+    if tarPerc=none
+        tarPerc='0'
+    await selectionTest(ctx,curLv,tarLv,curPerc,tarPerc)
 
 @bot.command()
 async def invite(ctx):
