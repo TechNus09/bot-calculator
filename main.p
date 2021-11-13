@@ -246,9 +246,9 @@ async def ping(ctx):
     
 @bot.command()
 async def calc(ctx,curLv,tarLv,curPerc=none,tarPerc=none):
-    if curPerc=none:
+    if curPerc is none:
         curPerc='0'
-    if tarPerc=none
+    if tarPerc is none:
         tarPerc='0'
     await selectionTest(ctx,curLv,tarLv,curPerc,tarPerc)
 
