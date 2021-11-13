@@ -219,7 +219,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                 rsc_xp = resources[rsc_used]
                 bst_name = boost_list[int(choice2)-1]
                 bst_used = boostsValues[bst_name]
-                xp_needed = getxp(int(curLv),int(tarLv),int(curPerc),int(tarPerc))
+                xp_needed = getxp(int(curLv),int(tarLv),float(curPerc),float(tarPerc))
                 rsc_needed = math.ceil(xp_needed / rsc_xp) + 1
                 rsc_needed_boosted = math.ceil(rsc_needed / bst_used)
                 result = 'Skill : ' + skills[int(choice)] + '\n Resource : ' + skill_rsc[int(choice)][int(choice1)-1] + '\n Current Lvl : ' + curLv + '\n target Lvl : ' + tarLv + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + str(rsc_needed_boosted)
@@ -261,7 +261,7 @@ async def invite(ctx):
 @bot.command()
 async def help(ctx):
     ping_msg = f'*ping : Show Ping'
-    calc_msg = f'*calc [current_lvl] [target_lvl]'
+    calc_msg = f'*calc [current_lvl] [target_lvl] [current_%]* [target_%]*'
     invite_msg = f"*invite : Send Bot's Invite Link to DM"
     help_msg = ping_msg + '\n' + calc_msg + '\n' + invite_msg
     await ctx.send(help_msg)
@@ -271,7 +271,7 @@ async def  on_command_error(ctx, error):
     if isinstance(error, commands.MissingPermissions):
         await ctx.send("You can't do that ;-;")
     elif isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send("Please enter all the required arguments \n*calc [current_lvl] [target_lvl]")
+        await ctx.send("Please enter all the required arguments \n*calc [current_lvl] [target_lvl] [current_%]* [target_%]* ")
     elif isinstance(error, commands.MemberNotFound):
         await ctx.send("Member not found, Please mention a valid user!")
     elif isinstance(error, commands.BotMissingPermissions):
