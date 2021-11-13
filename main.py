@@ -245,10 +245,10 @@ async def ping(ctx):
     await ctx.send(f"Pong! {round(bot.latency * 1000)}ms")
     
 @bot.command()
-async def calc(ctx,curLv,tarLv,curPerc=none,tarPerc=none):
-    if curPerc is none:
+async def calc(ctx,curLv,tarLv,curPerc=None,tarPerc=None):
+    if curPerc is None:
         curPerc='0'
-    if tarPerc is none:
+    if tarPerc is None:
         tarPerc='0'
     await selectionTest(ctx,curLv,tarLv,curPerc,tarPerc)
 
