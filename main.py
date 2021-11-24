@@ -156,7 +156,7 @@ def getxp( lv, nlv, per, nper):
         return XPneeded
     
 async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
-    await ctx.send(content='Skill :',components=[Select(
+    skill_msg = await ctx.send(content='Skill :',components=[Select(
         placeholder='Select Skill !',
         options=[
             SelectOption(label='⛏ Mining',value='0'),
@@ -171,7 +171,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
     )])
     interaction = await bot.wait_for('select_option',
     check=lambda inter: inter.custom_id == 'SelectSkill' and inter.user == ctx.author)
-    
+    await skill_msg.delete()
     choice = interaction.values[0]
     if choice == 'Cancel' :
         await interaction.send('You have canceled the interaction')
@@ -182,7 +182,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
         for i in range(len(rsc_list)):
             temp_list.append(SelectOption(label=rsc_list[i],value=str(i+1)))
         temp_list.append(SelectOption(label="Cancel",value="Cancel"))
-        await ctx.send(content='Resource :',components=[Select(
+        resource_msg = await ctx.send(content='Resource :',components=[Select(
         placeholder='Select Resource !',
         options=temp_list
         
@@ -190,7 +190,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
         )])
         interaction1 = await bot.wait_for('select_option',
         check=lambda inter: inter.custom_id == 'SelectRsc' and inter.user == ctx.author)
-        
+        await resource_msg.delete()
         choice1 = interaction1.values[0]
         if choice1 == 'Cancel' :
             await interaction1.send('You have canceled the interaction')
@@ -201,7 +201,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
             for i in range(len(boost_list)):
                 temp_list1.append(SelectOption(label=boost_list[i],value=str(i+1)))
             temp_list1.append(SelectOption(label="Cancel",value="Cancel"))
-            await ctx.send(content='Boost :',components=[Select(
+            boost_msg = await ctx.send(content='Boost :',components=[Select(
             placeholder='Select Boost !',
             options=temp_list1
             
@@ -209,7 +209,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
             )])
             interaction2 = await bot.wait_for('select_option',
             check=lambda inter: inter.custom_id == 'SelectBst' and inter.user == ctx.author)
-            
+            await boost_msg.delete()
             choice2 = interaction2.values[0]
             if choice2 == 'Cancel' :
                 await interaction1.send('You have canceled the interaction')
@@ -261,9 +261,9 @@ async def invite(ctx):
 
 @bot.command()
 async def help(ctx):
-    ping_msg = f'*ping : Show Ping'
-    calc_msg = f'*calc [current_lvl] [target_lvl] [current_%]* [target_%]*'
-    invite_msg = f"*invite : Send Bot's Invite Link to DM"
+    ping_msg = f'ping : Show Ping'
+    calc_msg = f'calc [currentLvl] [targetLvl] [current%]* [target%]*'
+    invite_msg = f"invite : Send Bot's Invite Link to DM"
     help_msg = ping_msg + '\n' + calc_msg + '\n' + invite_msg
     await ctx.send(help_msg)
 
@@ -272,7 +272,7 @@ async def  on_command_error(ctx, error):
     if isinstance(error, commands.MissingPermissions):
         await ctx.send("You can't do that ;-;")
     elif isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send("Please enter all the required arguments \n*calc [current_lvl] [target_lvl] [current_%]* [target_%]* ")
+        await ctx.send("Please enter all the required arguments \ncalc [currentLvl] [targetLvl] [current%]* [target%]* ")
     elif isinstance(error, commands.MemberNotFound):
         await ctx.send("Member not found, Please mention a valid user!")
     elif isinstance(error, commands.BotMissingPermissions):
