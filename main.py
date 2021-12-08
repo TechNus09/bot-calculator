@@ -161,10 +161,10 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
         options=[
             SelectOption(label='⛏ Mining',value='0'),
             SelectOption(label='⚒ Smiting',value='1'),
-            SelectOption(label='🪓 woodcutting',value='2'),
+            SelectOption(label='🌴 woodcutting',value='2'),
             SelectOption(label='🔨 Crafting',value='3'),
             SelectOption(label='🎣 Fishing',value='4'),
-            SelectOption(label='🍽 Cooking',value='5'),
+            SelectOption(label='🍳 Cooking',value='5'),
             SelectOption(label='🚫 Cancel',value='Cancel')
             
             ],custom_id='SelectSkill'
@@ -244,6 +244,10 @@ async def on_ready():
 @bot.command()
 async def ping(ctx):
     await ctx.send(f"Pong! {round(bot.latency * 1000)}ms")
+
+@bot.command()
+async def bestguild(ctx):
+    await ctx.send("OwO Numba Wan")
     
 @bot.command()
 async def calc(ctx,curLv,tarLv,curPerc=None,tarPerc=None):
@@ -263,8 +267,9 @@ async def invite(ctx):
 async def help(ctx):
     ping_msg = f'ping : Show Ping'
     calc_msg = f'calc [currentLvl] [targetLvl] [current%]* [target%]*'
+    bestguild_msg = f'bestguild : Show The Current Best Guild'
     invite_msg = f"invite : Send Bot's Invite Link to DM"
-    help_msg = ping_msg + '\n' + calc_msg + '\n' + invite_msg
+    help_msg = ping_msg + '\n' + calc_msg + '\n' + bestguild_msg + '\n' + invite_msg
     await ctx.send(help_msg)
 
 @bot.event
