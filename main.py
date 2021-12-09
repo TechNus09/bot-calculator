@@ -272,6 +272,16 @@ async def help(ctx):
     help_msg = ping_msg + '\n' + calc_msg + '\n' + bestguild_msg + '\n' + invite_msg
     await ctx.send(help_msg)
 
+@bot.command()
+async def servers(ctx):
+    tech_id = os.environ.get("TECH_ID")
+    if ctx.author.id == tech_id :
+        servers = list(bot.guilds)
+        await ctx.send(f"Connected on {str(len(servers))} servers:")
+        await ctx.send('\n'.join(guild.name for guild in guilds))
+    else :
+        await ctx.send("You don't have permissions to check this")
+
 @bot.event
 async def  on_command_error(ctx, error):
     if isinstance(error, commands.MissingPermissions):
