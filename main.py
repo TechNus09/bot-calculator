@@ -276,8 +276,8 @@ async def help(ctx):
 async def servers(ctx):
     tech_id = os.environ.get("TECH_ID")
     if ctx.author.id == int(tech_id) :
-        servers = list(bot.guilds)
-        await ctx.send(f"Connected on {str(len(servers))} servers:")
+        guilds = list(bot.guilds)
+        await ctx.send(f"Connected on {str(len(guilds))} servers:")
         await ctx.send('\n'.join(guild.name for guild in guilds))
     else :
         await ctx.send("You don't have permissions to check this")
