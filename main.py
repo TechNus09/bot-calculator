@@ -7,37 +7,6 @@ import math
 import os
 
 
-
-
-
-
-
-
-
-lvltab = [0,46,99,159,229,309,401,507,628,768,928,1112,1324,1567,1847,2168,2537,2961,3448,4008,4651,5389,6237,7212,
-8332,9618,11095,12792,14742,16982,19555,22510,25905,29805,34285,39431,45342,52132,59932,68892,79184,91006,104586,
-120186,138106,158690,182335,209496,240696,276536,317705,364996,419319,481720,553400,635738,730320,838966,963768,
-1107128,1271805,1460969,1678262,1927866,2214586,2543940,2922269,3356855,3856063,4429503,5088212,5844870,6714042,
-7712459,8859339,10176758,11690075,13428420,15425254,17719014,20353852,23380486,26857176,30850844,35438364,40708040,
-46761308,53714688,61702024,70877064,81416417,93522954,107429714,123404386,141754466,162833172,187046247,214859767,
-246809111,283509271,325666684,374092835,429719875,493618564,567018884,651333710,748186012,859440093,987237472,
-1134038112,1302667765,1496372370,1718880532,1974475291,2268076571,2605335878,2992745089,3437761413,3948950932,
-4536153492,5210672106]
-lvldef = [46, 53, 60, 70, 80, 92, 106, 121, 140, 160, 184, 212, 243, 280, 321, 369, 424, 487, 560, 643, 738, 
-848, 975, 1120, 1286, 1477, 1697, 1950, 2240, 2573, 2955, 3395, 3900, 4480, 5146, 5911, 6790, 7800, 8960, 
-10292, 11822, 13580, 15600, 17920, 20584, 23645, 27161, 31200, 35840, 41169, 47291, 54323, 62401, 71680, 82338,
-94582, 108646, 124802, 143360, 164677, 189164, 217293, 249604, 286720, 329354, 378329, 434586, 499208, 573440,
-658709, 756658, 869172, 998417, 1146880, 1317419, 1513317, 1738345, 1996834, 2293760, 2634838, 3026634, 3476690,
-3993668, 4587520, 5269676, 6053268, 6953380, 7987336, 9175040, 10539353, 12106537, 13906760, 15974672, 18350080,
-21078706, 24213075, 27813520, 31949344, 36700160, 42157413, 48426151, 55627040, 63898689, 73400320, 84314826,
-96852302, 111254081, 127797379, 146800640, 168629653, 193704605, 222508162, 255594759, 293601280, 337259307,
-387409211, 445016324, 511189519, 587202560]
-
-
-
-
-
-
 combat={"bat" : 8 ,"slime" : 16 ,"fishing_spider" : 38,"mashroom" : 46,"forest_spider" : 55 ,"forest_bat": 60 ,"snow_bat" : 125 ,
 "ice_slime": 165 ,"snowman" : 210 ,"ice_spider" : 250 ,"skeletal_snake" : 300  ,"cave_spider" : 350 ,"skeletal_bat" : 385 ,
 "sapphire_scarab" : 400,"cave_bat" : 560 ,"scorpion" : 700 ,"ice_fiend" : 850 ,"raptor" : 900 ,"ruby_scarab" : 1000 ,
@@ -48,10 +17,6 @@ combat={"bat" : 8 ,"slime" : 16 ,"fishing_spider" : 38,"mashroom" : 46,"forest_s
 "baby_dragon" : 5750 ,"gold_snake" : 1000 ,"brown_snake" : 1000 ,"purple_snake" : 1000 ,"sandstone_golem" : 11500 ,
 "cursed_totem" : 1 ,"war_bat" : 1200 ,"rock_demon" : 10000 , "spinus" : 8500 ,"ancient_war_bat" : 12000 ,
 "ice_Demon" : 16500 ,"reanimated_soul" : 1000 ,"golem" : 22500 ,"umbra" : 24000 ,"mummy" : 20000 }
-
-
-
-
 
 skills = ['Mining','Smithing','Woodcutting','crafting','Fishing','Cooking']
 
@@ -87,7 +52,6 @@ resources = {
 "Cooked Trout":750,"Cooked Bass":1350,"Cooked Tuna":2000,"Cooked Lobster":3500,"Cooked Sea Turtle":6500,
 "Cooked Manta Ray":9500,"Cooked Shark":13500,"Cooked Orca":22500,"Cooked Giant Squid":41500}
 
-
 Combat_boosts = ["NoBoost","XpRelics","XpPotion","XpRelics+XpPotion","WorldBoost","XpRelics+WorldBoost","XpPotion+WorldBoost","XpRelics+XpPotion+WorldBoost"]
 Mining_boosts = ["NoBoost","ProsNeck","WorldBoost","ProsNeck+WorldBoost"]
 Smithing_boosts = ["NoBoost","InfHammer","InfRing","InfHammer+InfRing","WorldBoost","hammer+WorldBoost","Ring+WorldBoost","Hammer+Ring+WorldBoost"]
@@ -97,14 +61,9 @@ Fishing_boosts = ["NoBoost","WorldBoost"]
 Cooking_boosts = ["NoBoost","WorldBoost"]
 boostsValues = {"NoBoost":1.0,"InfHammer":1.04,"InfRing":1.04,"XpRelics":1.05,"XpPotion":1.05,"ProsNeck":1.05,"InfHammer+InfRing":1.0816,"XpRelics+XpPotion":1.1025,"WorldBoost":1.5,"hammer+WorldBoost":1.56,"Ring+WorldBoost":1.56,"XpRelics+WorldBoost":1.575,"XpPotoin+WorldBoost":1.575,"ProsNeck+WorldBoost":1.575,"Hammer+Ring+WorldBoost":1.6224,"XpRelics+XpPotoin+WorldBoost":1.65375}
 
-
 boosts = [Mining_boosts,Smithing_boosts,Woodcutting_boosts,Crafting_boosts,Fishing_boosts,Cooking_boosts]
 
-
 skill_rsc = [miningRsc, smithingRsc, woodcuttingRsc, craftingRsc, fishingRsc,cookingRsc]
-
-
-
 
 combatresc=["bat","slime","fishing_spider","mashroom","forest_spider","forest_bat",
 "snow_bat","ice_slime","snowman","ice_spider",
@@ -119,8 +78,6 @@ combatresc=["bat","slime","fishing_spider","mashroom","forest_spider","forest_ba
 "purple_snake","sandstone_golem","cursed_totem","war_bat","rock_demon","spinus",
 "ancient_war_bat","ice_Demon","reanimated_soul",
 "golem","umbra","mummy"]
-
-
 
 lvltab = [0,46,99,159,229,309,401,507,628,768,928,1112,1324,1567,1847,2168,2537,2961,3448,4008,4651,5389,6237,7212,8332,9618,11095,12792,14742,16982,19555,22510,25905,29805,34285,
 39431,45342,52132,59932,68892,79184,91006,104586,120186,138106,158690,182335,209496,240696,276536,317705,364996,419319,481720,553400,635738,730320,838966,963768,1107128,1271805,
@@ -138,8 +95,6 @@ lvldef = [46, 53, 60, 70, 80, 92, 106, 121, 140, 160, 184, 212, 243, 280, 321, 3
 bot = ComponentsBot('*')
 bot.remove_command('help')
 
-
-
 def tabfill(xp):    
     lvl=0
     a=0
@@ -150,10 +105,13 @@ def tabfill(xp):
     return lvl, a
 
 def getxp( lv, nlv, per, nper):
-        minxp= lvltab[lv-1] + (lvldef[lv-1]*(per/100))
+    minxp= lvltab[lv-1] + (lvldef[lv-1]*(per/100))
+    if nlv == 120:
+        bigxp= lvltab[119]
+    else:
         bigxp= lvltab[nlv-1] + (lvldef[nlv-1]*(nper/100))
-        XPneeded = round(bigxp - minxp)
-        return XPneeded
+    XPneeded = round(bigxp - minxp)
+    return XPneeded
     
 async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
     skill_msg = await ctx.send(content='Skill :',components=[Select(
@@ -237,9 +195,6 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
 async def on_ready():
     print(f'Logged in as {bot.user}!')
     await bot.change_presence(activity=d.Game(name="Calculator"))
-
-
-
 
 @bot.command()
 async def ping(ctx):
