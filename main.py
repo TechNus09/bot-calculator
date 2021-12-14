@@ -31,7 +31,7 @@ craftingRsc=["Accuracy Relic","Guarding Relic","Healing Relic","Wealth Relic",
 "Cursed Relic"]
 fishingRsc=["Anchovies", "Goldfish", "Mackerel", "Squid", "Sardine", "Eel", "Anglerfish", 
 "Trout", "Trout+Jellyfish", "Bass", "Bass+Herringbone", "Tuna", "Lobster", "Lobster+SeaTurtle", "Manta Ray", 
-"Shark", "Shark+Orca", "Shark+Oeca+GiantSquid"]
+"Shark", "Shark+Orca", "Shark+Orca+GiantSquid"]
 cookingRsc=["Cooked Anchovies", "Cooked Mackerel", "Cooked Squid", "Cooked Sardine", "Cooked Eel", 
 "Cooked Anglerfish", "Cooked Trout", "Cooked Bass", "Cooked Tuna", "Cooked Lobster", 
 "Cooked Sea Turtle", "Cooked Manta Ray", "Cooked Shark", "Cooked Orca", "Cooked Giant Squid"]
