@@ -185,7 +185,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                 xp_needed = getxp(int(curLv),int(tarLv),float(curPerc),float(tarPerc))
                 rsc_needed = math.ceil(xp_needed / rsc_xp) + 1
                 rsc_needed_boosted = math.ceil(rsc_needed / bst_used)
-                if chosen_skill.lower() == fishing :
+                if chosen_skill.lower() == "fishing" :
                     result = 'Skill : ' + chosen_skill.capitalize() + '\n Fish : ' + skill_rsc[int(choice)][int(choice1)-1] +'\n Bait : ' + baits[rsc_used] + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + str(rsc_needed_boosted)
                 else :
                     result = 'Skill : ' + chosen_skill.capitalize() + '\n Resource : ' + skill_rsc[int(choice)][int(choice1)-1] + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + str(rsc_needed_boosted)
