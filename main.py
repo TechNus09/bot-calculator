@@ -30,8 +30,8 @@ craftingRsc=["Accuracy Relic","Guarding Relic","Healing Relic","Wealth Relic",
 "Power Relic","Nature Relic","Fire Relic","Damage Relic","Leeching Relic","Experience Relic",
 "Cursed Relic"]
 fishingRsc=["Anchovies", "Goldfish", "Mackerel", "Squid", "Sardine", "Eel", "Anglerfish", 
-"Trout", "Jellyfish", "Bass", "Herringbone", "Tuna", "Lobster", "Sea Turtle", "Manta Ray", 
-"Shark", "Orca", "Giant Squid"]
+"Trout", "Trout+Jellyfish", "Bass", "Bass+Herringbone", "Tuna", "Lobster", "Lobster+SeaTurtle", "Manta Ray", 
+"Shark", "Shark+Orca", "Shark+Oeca+GiantSquid"]
 cookingRsc=["Cooked Anchovies", "Cooked Mackerel", "Cooked Squid", "Cooked Sardine", "Cooked Eel", 
 "Cooked Anglerfish", "Cooked Trout", "Cooked Bass", "Cooked Tuna", "Cooked Lobster", 
 "Cooked Sea Turtle", "Cooked Manta Ray", "Cooked Shark", "Cooked Orca", "Cooked Giant Squid"]
@@ -46,8 +46,8 @@ resources = {
 "Accuracy Relic":3 ,"Guarding Relic":8 ,"Healing Relic":18 ,"Wealth Relic":40 ,"Power Relic":105 ,"Nature Relic":200 ,
 "Fire Relic":425 ,"Damage Relic":900 ,"leeching Relic":1400 ,"Experience Relic":1850 ,"Cursed Relic":2750,
 "Anchovies":10,"Goldfish":20,"Mackerel":50,"Squid":115,"Sardine":375,"Eel":500,"Anglerfish":625,
-"Trout":750,"Jellyfish":900,"Bass":1350,"Herringbone":1700,"Tuna":2000,"Lobster":3500,"Sea Turtle":6500,
-"Manta Ray":9500,"Shark":14500,"Orca":29500,"Giant Squid":55000,
+"Trout":750,"Jellyfish":900,"Trout+Jellyfish":825,"Bass":1350,"Herringbone":1700,"Bass+Herringbone":1525,"Tuna":2000,"Lobster":3500,"Sea Turtle":6500,
+"Manta Ray":9500,"Shark":14500,"Orca":29500,"Giant Squid":55000,"Shark+Orca":22000,"Shark+Orca+GiantSquid":33000,
 "Cooked Anchovies":10,"Cooked Mackerel":50,"Cooked Squid":115,"Cooked Sardine":375,"Cooked Eel":500,"Cooked Anglerfish":30,
 "Cooked Trout":750,"Cooked Bass":1350,"Cooked Tuna":2000,"Cooked Lobster":3500,"Cooked Sea Turtle":6500,
 "Cooked Manta Ray":9500,"Cooked Shark":13500,"Cooked Orca":22500,"Cooked Giant Squid":41500}
