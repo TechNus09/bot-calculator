@@ -285,11 +285,11 @@ async def on_ready():
 async def ping(ctx):
     await ctx.send(f"Pong! {round(bot.latency * 1000)}ms")
 
-@bot.command()
+@bot.command(name="OwO",aliases=["owo","Owo","oWo","OWo","OWO","oWO"])
 async def OwO(ctx):
     await ctx.send("Numba Wan")
     
-@bot.command()
+@bot.command(name='calc',aliases=['Calc'])
 async def calc(ctx,curLv,tarLv,curPerc=None,tarPerc=None):
     if curPerc is None:
         curPerc='0'
