@@ -7,16 +7,34 @@ import math
 import os
 
 
-combat={"bat" : 8 ,"slime" : 16 ,"fishing_spider" : 38,"mashroom" : 46,"forest_spider" : 55 ,"forest_bat": 60 ,"snow_bat" : 125 ,
-"ice_slime": 165 ,"snowman" : 210 ,"ice_spider" : 250 ,"skeletal_snake" : 300  ,"cave_spider" : 350 ,"skeletal_bat" : 385 ,
-"sapphire_scarab" : 400,"cave_bat" : 560 ,"scorpion" : 700 ,"ice_fiend" : 850 ,"raptor" : 900 ,"ruby_scarab" : 1000 ,
-"forest_fiend" : 1080 ,"desert_raptor" : 1850 ,"rock_fiend" : 2000 ,"giant_hornet" : 2100 ,"luminant_slime" : 2200 ,
-"ancient_bat" : 2400 ,"ice_raptor" : 2750 ,"arosite_scarab" : 2850 ,"spectral_flame" : 2700 ,"cactus_soldier" : 2800 ,
-"phantom_flame" : 2900 ,"spectral_fiend" : 3100 ,"phantom_fiend" : 3600 ,"ancient_cyclops" : 4000 ,"anubis" : 4000 ,
-"magnetite_scarab" : 4250 ,"golemite_bat" : 4400 ,"golemite_fiend" : 5270 ,"poltergeist" : 250 ,"anubis_elite" : 7500 ,
-"baby_dragon" : 5750 ,"gold_snake" : 1000 ,"brown_snake" : 1000 ,"purple_snake" : 1000 ,"sandstone_golem" : 11500 ,
-"cursed_totem" : 1 ,"war_bat" : 1200 ,"rock_demon" : 10000 , "spinus" : 8500 ,"ancient_war_bat" : 12000 ,
-"ice_Demon" : 16500 ,"reanimated_soul" : 1000 ,"golem" : 22500 ,"umbra" : 24000 ,"mummy" : 20000 }
+combat={"Bat" : 8 ,"Slime" : 16 ,"Fishing Spider" : 38,"Mashroom" : 46,"Forest Spider" : 55 ,"Forest Bat": 60 ,"Skeletal Snake" : 300  ,"Cave Spider" : 350 ,"Skeletal Bat" : 385 ,"Cave Bat" : 560 ,
+"Forest Fiend" : 1080 ,"Rock Fiend" : 2000 ,"Giant Hornet" : 2100 ," Shadow Flame": 2800,"Shadow fiend": 1500 ,
+
+"Snow Bat" : 125 ,"Ice Slime": 165 ,"Snowman" : 210 ,"Ice Spider" : 250 ,"Ice Fiend" : 850 ,"Ancient Bat" : 2400 ,"Ice Raptor" : 2750 ,"Spectral Flame" : 2700 ,"Phantom Flame" : 2900 ,
+"Spectral Fiend" : 3100 ,"Phantom Fiend" : 3600 ,"Ancient Cyclops" : 4000 ,
+
+"Sapphire Scarab" : 400,"Scorpion" : 700 ,"Raptor" : 900 ,"Ruby Scarab" : 1000 ,"Desert Raptor" : 1850 ,"Gold Snake" : 1000 ,"Brown Snake" : 1000 ,"Purple Snake" : 1000 ,"Sandstone Golem" : 11500 ,
+"Anubis" : 4000 ,"Cactus Soldier" : 2800 ,"Arosite Scarab" : 2850 ,"Magnetite Scarab" : 4250 ,"Anubis Elite" : 7500 ,
+
+"Luminant Slime" : 2200 ,"Golemite Bat" : 4400 ,"Golemite Fiend" : 5270 ,"Baby Dragon" : 5750 ,
+
+"War Bat" : 1200 ,"Rock Demon" : 10000 ,"Ice Demon" : 16500 ,"Shadow Demon": 	20000,"Ancient War Bat" : 12000 ,"Spinus" : 8500 ,"Reanimated Soul" : 1000 ,"Mummy" : 20000 ,"Golem" : 22500 ,"Umbra" : 24000 ,
+}
+
+
+bright_leaf = ["Bat" ,"Slime" ,"Fishing Spider" ,"Mashroom" ,"Forest Spider" ,"Forest Bat" ,"Skeletal Snake" ,"Cave Spider" ,"Skeletal Bat" ,"Cave Bat" ,
+"Forest Fiend" ,"Rock Fiend" ,"Giant Hornet" ," Shadow Flame" ,"Shadow fiend" ]
+wintermist =["Snow Bat" ,"Ice Slime" ,"Snowman" ,"Ice Spider" ,"Ice Fiend" ,"Ancient Bat" ,"Ice Raptor" ,"Spectral Flame" ,"Phantom Flame"  
+"Spectral Fiend" ,"Phantom Fiend" ,"Ancient Cyclops" ]
+desert = ["Sapphire Scarab" ,"Scorpion" ,"Raptor" ,"Ruby Scarab" ,"Desert Raptor" ,"Gold Snake" ,"Brown Snake" ,"Purple Snake" ,"Sandstone Golem" ,
+"Anubis" ,"Cactus Soldier" ,"Arosite Scarab" ,"Magnetite Scarab" ,"Anubis Elite" ]
+varaxite = ["Luminant Slime" ,"Golemite Bat" ,"Golemite Fiend" ,"Baby Dragon" ]
+bosses = ["War Bat" ,"Rock Demon" ,"Ice Demon" ,"Shadow Demon" ,"Ancient War Bat" ,"Spinus" ,"Reanimated Soul" ,"Mummy" ,"Golem" ,"Umbra" ]
+locations = ["Bright Leaf","Wintermist","Desert","Varaxite","Bosses"]
+
+
+
+
 
 skills = ['Mining','Smithing','Woodcutting','crafting','Fishing','Cooking']
 
@@ -35,6 +53,7 @@ fishingRsc=["Anchovies", "Goldfish", "Mackerel", "Squid", "Sardine", "Eel", "Ang
 cookingRsc=["Cooked Anchovies", "Cooked Mackerel", "Cooked Squid", "Cooked Sardine", "Cooked Eel", 
 "Cooked Anglerfish", "Cooked Trout", "Cooked Bass", "Cooked Tuna", "Cooked Lobster", 
 "Cooked Sea Turtle", "Cooked Manta Ray", "Cooked Shark", "Cooked Orca", "Cooked Giant Squid"]
+combatRsc=[bright_leaf,wintermist,desert,varaxite,bosses]
 baits = {"Anchovies":" Earthworm", "Goldfish":" Earthworm", "Mackerel":"Iceworm", "Squid":"Iceworm", "Sardine":"Corpseworm", "Eel":"ToxicWorm", "Anglerfish":"Sandworm", 
 "Trout":"Beetle", "Trout+Jellyfish":"Beetle", "Bass":"Grasshopper", "Bass+Herringbone":"Grasshopper", "Tuna":"Wasp", "Lobster":"Scallop", "Lobster+SeaTurtle":"Scallop", "Manta Ray":"Crab", 
 "Shark":"Bass", "Shark+Orca":"Bass", "Shark+Orca+GiantSquid":"Bass"}
@@ -63,25 +82,14 @@ Woodcutting_boosts = ["NoBoost","WorldBoost"]
 Crafting_boosts = ["NoBoost","WorldBoost"]
 Fishing_boosts = ["NoBoost","WorldBoost"]
 Cooking_boosts = ["NoBoost","WorldBoost"]
-boostsValues = {"NoBoost":1.0,"InfHammer":1.04,"InfRing":1.04,"XpRelics":1.05,"XpPotion":1.05,"ProsNeck":1.05,"InfHammer+InfRing":1.0816,"XpRelics+XpPotion":1.1025,"WorldBoost":1.5,"hammer+WorldBoost":1.56,"Ring+WorldBoost":1.56,"XpRelics+WorldBoost":1.575,"XpPotoin+WorldBoost":1.575,"ProsNeck+WorldBoost":1.575,"Hammer+Ring+WorldBoost":1.6224,"XpRelics+XpPotoin+WorldBoost":1.65375}
+boostsValues = {"NoBoost":1.0,"InfHammer":1.04,"InfRing":1.04,"XpRelics":1.05,"XpPotion":1.05,"ProsNeck":1.05,"InfHammer+InfRing":1.0816,"XpRelics+XpPotion":1.1025,"WorldBoost":1.5,"hammer+WorldBoost":1.56,
+"Ring+WorldBoost":1.56,"XpRelics+WorldBoost":1.575,"XpPotion+WorldBoost":1.575,"ProsNeck+WorldBoost":1.575,"Hammer+Ring+WorldBoost":1.6224,"XpRelics+XpPotion+WorldBoost":1.65375}
 
-boosts = [Mining_boosts,Smithing_boosts,Woodcutting_boosts,Crafting_boosts,Fishing_boosts,Cooking_boosts]
+boosts = [Combat_boosts,Mining_boosts,Smithing_boosts,Woodcutting_boosts,Crafting_boosts,Fishing_boosts,Cooking_boosts]
 
-skill_rsc = [miningRsc, smithingRsc, woodcuttingRsc, craftingRsc, fishingRsc,cookingRsc]
+skill_rsc = [combatRsc,miningRsc, smithingRsc, woodcuttingRsc, craftingRsc, fishingRsc,cookingRsc]
 
-combatresc=["bat","slime","fishing_spider","mashroom","forest_spider","forest_bat",
-"snow_bat","ice_slime","snowman","ice_spider",
-"skeletal_snake","cave_spider","skeletal_bat","sapphire_scarab","cave_bat","scorpion",
-"ice_fiend","raptor","ruby_scarab",
-"forest_fiend","desert_raptor","rock_fiend","giant_hornet","luminant_slime",
-"ancient_bat","ice_raptor","arosite_scarab",
-"spectral_flame","cactus_soldier","phantom_flame","spectral_fiend","phantom_fiend",
-"ancient_cyclops","anubis",
-"magnetite_scarab","golemite_bat","golemite_fiend","poltergeist","anubis_elite",
-"baby_dragon","gold snake","brown snake",
-"purple_snake","sandstone_golem","cursed_totem","war_bat","rock_demon","spinus",
-"ancient_war_bat","ice_Demon","reanimated_soul",
-"golem","umbra","mummy"]
+
 
 lvltab = [0,46,99,159,229,309,401,507,628,768,928,1112,1324,1567,1847,2168,2537,2961,3448,4008,4651,5389,6237,7212,8332,9618,11095,12792,14742,16982,19555,22510,25905,29805,34285,
 39431,45342,52132,59932,68892,79184,91006,104586,120186,138106,158690,182335,209496,240696,276536,317705,364996,419319,481720,553400,635738,730320,838966,963768,1107128,1271805,
@@ -121,12 +129,13 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
     skill_msg = await ctx.send(content='Skill :',components=[Select(
         placeholder='Select Skill !',
         options=[
-            SelectOption(label='⛏ Mining',value='0'),
-            SelectOption(label='⚒ Smiting',value='1'),
-            SelectOption(label='🌴 woodcutting',value='2'),
-            SelectOption(label='🔨 Crafting',value='3'),
-            SelectOption(label='🎣 Fishing',value='4'),
-            SelectOption(label='🍳 Cooking',value='5'),
+            SelectOption(label='⚔ Combat',value='0'),
+            SelectOption(label='⛏ Mining',value='1'),
+            SelectOption(label='⚒ Smiting',value='2'),
+            SelectOption(label='🌴 woodcutting',value='3'),
+            SelectOption(label='🔨 Crafting',value='4'),
+            SelectOption(label='🎣 Fishing',value='5'),
+            SelectOption(label='🍳 Cooking',value='6'),
             SelectOption(label='🚫 Cancel',value='Cancel')
             
             ],custom_id='SelectSkill'
@@ -137,7 +146,76 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
     choice = interaction.values[0]
     if choice == 'Cancel' :
         await interaction.send('You have canceled the interaction')
-    
+    elif choice == '0':
+        location_list = locations
+        temp_list = []
+        for i in range(len(location_list)):
+            temp_list.append(SelectOption(label=location_list[i],value=str(i+1)))
+        temp_list.append(SelectOption(label="Cancel",value="Cancel"))
+        resource_msg = await ctx.send(content='Location :',components=[Select(
+        placeholder='Select Location !',
+        options=temp_list
+        
+        ,custom_id='SelectLoc'
+        )])
+        interaction3 = await bot.wait_for('select_option',
+        check=lambda inter: inter.custom_id == 'SelectLoc' and inter.user == ctx.author)
+        await resource_msg.delete()
+        choice3 = interaction3.values[0]
+        if choice3 == 'Cancel' :
+            await interaction3.send('You have canceled the interaction')
+        else:
+            mob_list = combatRsc[int(choice3)-1]
+            temp_list = []
+            for i in range(len(mob_list)):
+                temp_list.append(SelectOption(label=mob_list[i],value=str(i+1)))
+            temp_list.append(SelectOption(label="Cancel",value="Cancel"))
+            resource_msg = await ctx.send(content='Mob :',components=[Select(
+            placeholder='Select Mob !',
+            options=temp_list
+            
+            ,custom_id='SelectMob'
+            )])
+            interaction4 = await bot.wait_for('select_option',
+            check=lambda inter: inter.custom_id == 'SelectMob' and inter.user == ctx.author)
+            await resource_msg.delete()
+            choice4 = interaction4.values[0]
+            if choice4 == 'Cancel' :
+                await interaction4.send('You have canceled the interaction')
+
+            else:
+                boost_list = Combat_boosts
+                temp_list1 = []
+                for i in range(len(boost_list)):
+                    temp_list1.append(SelectOption(label=boost_list[i],value=str(i+1)))
+                temp_list1.append(SelectOption(label="Cancel",value="Cancel"))
+                boost_msg = await ctx.send(content='Boost :',components=[Select(
+                placeholder='Select Boost !',
+                options=temp_list1
+                
+                ,custom_id='SelectBst'
+                )])
+                interaction2 = await bot.wait_for('select_option',
+                check=lambda inter: inter.custom_id == 'SelectBst' and inter.user == ctx.author)
+                await boost_msg.delete()
+                choice2 = interaction2.values[0]
+                if choice2 == 'Cancel' :
+                    await interaction2.send('You have canceled the interaction')
+
+                else:
+                    mob_used = combatRsc[int(choice3)-1][int(choice4)-1]
+                    mob_xp = combat[mob_used]
+                    bst_name = boost_list[int(choice2)-1]
+                    bst_used = boostsValues[bst_name]
+                    chosen_skill = skills[int(choice)] 
+                    xp_needed = getxp(int(curLv),int(tarLv),float(curPerc),float(tarPerc))
+                    rsc_needed = math.ceil(xp_needed / mob_xp) + 1
+                    rsc_needed_boosted = math.ceil(rsc_needed / bst_used)
+                    result = 'Skill : Combat' + '\n Mob : ' + mob_used + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + str(rsc_needed_boosted)
+                    
+                    await ctx.send(result)
+
+        
     else:
         rsc_list = skill_rsc[int(choice)]
         temp_list = []
