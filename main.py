@@ -286,8 +286,8 @@ async def ping(ctx):
     await ctx.send(f"Pong! {round(bot.latency * 1000)}ms")
 
 @bot.command()
-async def bestguild(ctx):
-    await ctx.send("OwO Numba Wan")
+async def OwO(ctx):
+    await ctx.send("Numba Wan")
     
 @bot.command()
 async def calc(ctx,curLv,tarLv,curPerc=None,tarPerc=None):
@@ -301,15 +301,14 @@ async def calc(ctx,curLv,tarLv,curPerc=None,tarPerc=None):
 async def invite(ctx):
     member = ctx.author
     channel = await member.create_dm()
-    await channel.send('https://discord.com/api/oauth2/authorize?client_id=891750013774991370&permissions=39936&scope=bot')
+    await channel.send('https://discord.com/api/oauth2/authorize?client_id=891750013774991370&permissions=2147814464&scope=bot')
 
 @bot.command()
 async def help(ctx):
     ping_msg = f'ping : Show Ping'
     calc_msg = f'calc [currentLvl] [targetLvl] [current%]* [target%]*'
-    bestguild_msg = f'bestguild : Show The Current Best Guild'
     invite_msg = f"invite : Send Bot's Invite Link to DM"
-    help_msg = ping_msg + '\n' + calc_msg + '\n' + bestguild_msg + '\n' + invite_msg
+    help_msg = ping_msg + '\n' + calc_msg + '\n' + invite_msg
     await ctx.send(help_msg)
 
 @bot.command()
