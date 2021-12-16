@@ -36,7 +36,7 @@ locations = ["Bright Leaf","Wintermist","Desert","Varaxite","Bosses"]
 
 
 
-skills = ['Mining','Smithing','Woodcutting','crafting','Fishing','Cooking']
+skills = ['Combat','Mining','Smithing','Woodcutting','crafting','Fishing','Cooking']
 
 miningRsc=["Tin Ore","Copper Ore","Iron Ore","Salt","Coal","Silver Ore","Crimsteel Ore",
 "Gold Ore","PinkSalt","Mythan Ore","Sandstone","Cobalt Ore","Varaxium","BlackSalt"]
