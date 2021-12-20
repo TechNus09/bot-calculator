@@ -2,11 +2,12 @@ import asyncio
 import discord as d
 from discord.utils import get
 from discord.ext import commands
-from discord_components import Button, Select, SelectOption, ComponentsBot, component, interaction
+from discord_components import Button, Select, SelectOption, ComponentsBot, component, interaction, ButtonStyle
 import math
 import os
+import time
 
-
+invite_url = 'https://discord.com/api/oauth2/authorize?client_id=891750013774991370&permissions=2147814464&scope=bot'
 combat={"Bat" : 8 ,"Slime" : 16 ,"Fishing Spider" : 38,"Mashroom" : 46,"Forest Spider" : 55 ,"Forest Bat": 60 ,"Skeletal Snake" : 300  ,"Cave Spider" : 350 ,"Skeletal Bat" : 385 ,"Cave Bat" : 560 ,
 "Forest Fiend" : 1080 ,"Rock Fiend" : 2000 ,"Giant Hornet" : 2100 ," Shadow Flame": 2800,"Shadow fiend": 1500 ,
 
@@ -299,9 +300,10 @@ async def calc(ctx,curLv,tarLv,curPerc=None,tarPerc=None):
 
 @bot.command()
 async def invite(ctx):
-    member = ctx.author
-    channel = await member.create_dm()
-    await channel.send('https://discord.com/api/oauth2/authorize?client_id=891750013774991370&permissions=2147814464&scope=bot')
+    e = d.Embed(title="Click The Button To Invite Me", color=0x00ff00)
+    inv = await ctx.send(embeds=[e],components=[Button(style=ButtonStyle.URL, label="Invite Me !", url=invite_url)])
+    time.sleep(5)
+    await inv.edit(embeds=[e],components=[Button(style=ButtonStyle.URL, label="Invite Me !", url=invite_url,disabled=True)])
 
 @bot.command()
 async def help(ctx):
