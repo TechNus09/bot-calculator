@@ -366,7 +366,7 @@ async def invite(ctx):
 @bot.command()
 async def help(ctx):
     ping_msg = f'ping : Show Ping'
-    calc_msg = f'calc [currentLvl] [targetLvl] [current%]* [target%]*'
+    calc_msg = f'calc [currentLvl] [targetLvl] [current%]* [target%]* \n(current% and target% are optionals)'
     invite_msg = f"invite : Send Bot's Invite Link to DM"
     help_msg = ping_msg + '\n' + calc_msg + '\n' + invite_msg
     await ctx.send(help_msg)
