@@ -97,6 +97,15 @@ baits_id = {
     'Shark': 922873492058284094, 'Shark+Orca': 922873492058284094, 'Shark+Orca+GiantSquid': 922873492058284094
     }
 
+skills_id = {
+    'Combat':880221520121700362,
+    'Mining':880221690049732638,
+    'Smithing':880221615374360648,
+    'Woodcutting':880221633913163796,
+    'Crafting':880221589050916914,
+    'Fishing':880221548399697923,
+    'Cooking':880221572751847444,
+    }
 
 
 resources = {
@@ -257,6 +266,8 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                     await interaction2.send('You have canceled the interaction')
 
                 else:
+                    combat_emoji = emoji=bot.get_emoji(880221520121700362)
+                    mob_emoji = bot.get_emoji(combatRsc[int(choice3)-1][int(choice4)-1][1])
                     mob_used = combatRsc[int(choice3)-1][int(choice4)-1][0]
                     mob_xp = combat[mob_used]
                     bst_name = boost_list[int(choice2)-1]
@@ -265,7 +276,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                     xp_needed = getxp(int(curLv),int(tarLv),float(curPerc),float(tarPerc))
                     rsc_needed = math.ceil(xp_needed / mob_xp) + 1
                     rsc_needed_boosted = math.ceil(rsc_needed / bst_used)
-                    result = 'Skill : Combat' + '\n Mob : ' + mob_used + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + str(rsc_needed_boosted)
+                    result = f'Skill : {combat_emoji} Combat' + '\n Mob : ' + f'{mob_emoji}' + mob_used + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + str(rsc_needed_boosted)
                     
                     await ctx.send(result)
 
@@ -314,13 +325,18 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                 bst_name = boost_list[int(choice2)-1]
                 bst_used = boostsValues[bst_name]
                 chosen_skill = skills[int(choice)] 
+                skill_id = skills_id[chosen_skill.capitalize()]
+                skill_emoji = bot.get_emoji(skill_id)
+                resource_emoji = bot.get_emoji(skill_rsc[int(choice)][int(choice1)-1][1])
                 xp_needed = getxp(int(curLv),int(tarLv),float(curPerc),float(tarPerc))
                 rsc_needed = math.ceil(xp_needed / rsc_xp) + 1
                 rsc_needed_boosted = math.ceil(rsc_needed / bst_used)
                 if chosen_skill.lower() == "fishing" :
-                    result = 'Skill : ' + chosen_skill.capitalize() + '\n Fish : ' + rsc_used +'\n Bait : ' + baits[rsc_used] + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + str(rsc_needed_boosted)
+                    bait_id = baits_id[rsc_used]
+                    bait_emoji = bot.get_emoji(bait_id)
+                    result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\n Fish : {resource_emoji} ' + rsc_used + f'\n Bait : {bait_emoji} ' + baits[rsc_used] + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + str(rsc_needed_boosted)
                 else :
-                    result = 'Skill : ' + chosen_skill.capitalize() + '\n Resource : ' + rsc_used + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + str(rsc_needed_boosted)
+                    result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\n Resource : {resource_emoji} ' + rsc_used + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + str(rsc_needed_boosted)
                 
                 await ctx.send(result)
 
