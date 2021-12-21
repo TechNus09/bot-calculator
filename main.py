@@ -8,7 +8,7 @@ import os
 import time
 
 
-invite_url = 'https://discord.com/api/oauth2/authorize?client_id=891750013774991370&permissions=2147814464&scope=bot'
+invite_url = 'https://discord.com/api/oauth2/authorize?client_id=891750013774991370&permissions=139586783296&scope=bot%20applications.commands'
 
 combat={
     "Bat" : 8 ,"Slime" : 16 ,"Fishing Spider" : 38,"Mashroom" : 46,"Forest Spider" : 55 ,"Forest Bat": 60 ,"Skeletal Snake" : 300  ,"Cave Spider" : 350 ,"Skeletal Bat" : 385 ,"Cave Bat" : 560 ,
