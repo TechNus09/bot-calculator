@@ -276,7 +276,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                     xp_needed = getxp(int(curLv),int(tarLv),float(curPerc),float(tarPerc))
                     rsc_needed = math.ceil(xp_needed / mob_xp) + 1
                     rsc_needed_boosted = math.ceil(rsc_needed / bst_used)
-                    result = f'Skill : {combat_emoji} Combat' + '\n Mob : ' + f'{mob_emoji}' + mob_used + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + str(rsc_needed_boosted)
+                    result = f'Skill : {combat_emoji} Combat' + '\n Mob : ' + f'{mob_emoji}' + mob_used + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + f'{rsc_needed_boosted:,}'
                     
                     await ctx.send(result)
 
@@ -334,9 +334,9 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                 if chosen_skill.lower() == "fishing" :
                     bait_id = baits_id[rsc_used]
                     bait_emoji = bot.get_emoji(bait_id)
-                    result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\n Fish : {resource_emoji} ' + rsc_used + f'\n Bait : {bait_emoji} ' + baits[rsc_used] + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + str(rsc_needed_boosted)
+                    result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\n Fish : {resource_emoji} ' + rsc_used + f'\n Bait : {bait_emoji} ' + baits[rsc_used] + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + f'{rsc_needed_boosted:,}'
                 else :
-                    result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\n Resource : {resource_emoji} ' + rsc_used + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + str(rsc_needed_boosted)
+                    result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\n Resource : {resource_emoji} ' + rsc_used + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + f'{rsc_needed_boosted:,}'
                 
                 await ctx.send(result)
 
