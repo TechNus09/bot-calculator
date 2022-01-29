@@ -10,19 +10,7 @@ import psycopg2
 from psycopg2 import Error
 from db_helper import update ,retrieve ,insert
 
-# Connect to an existing database
-db_user = os.environ.get("DB_USER")
-db_pw = os.environ.get("DB_PW")
-db_host = os.environ.get("DB_HOST")
-db_port = os.environ.get("DB_PORT")
-db_name = os.environ.get("DB_NAME")
-connection = psycopg2.connect(
-                                user=db_user,
-                                password=db_pw,
-                                host=db_host,
-                                port=db_port,
-                                database=db_name
-                                )
+
 
 
 invite_url = 'https://discord.com/api/oauth2/authorize?client_id=891750013774991370&permissions=139586783296&scope=bot%20applications.commands'
