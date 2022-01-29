@@ -1,16 +1,12 @@
-import asyncio
 import discord as d
-from discord.utils import get
 from discord.ext import commands
-from discord_components import Button, Select, SelectOption, ComponentsBot, component, interaction, ButtonStyle
+from discord_components import Button, Select, SelectOption, ComponentsBot, ButtonStyle
 import math
 import os
 import time
 import psycopg2
 from psycopg2 import Error
 from db_helper import update ,retrieve ,insert
-
-
 
 
 invite_url = 'https://discord.com/api/oauth2/authorize?client_id=891750013774991370&permissions=139586783296&scope=bot%20applications.commands'
@@ -55,7 +51,7 @@ bosses = [
 
 locations = ["Bright Leaf","Wintermist","Desert","Varaxite","Bosses"]
 
-skills = ['Combat','Mining','Smithing','Woodcutting','crafting','Fishing','Cooking']
+skills = ['Combat','Mining','Smithing','Woodcutting','crafting','Fishing','Cooking','Tailoring']
 
 combatRsc=[bright_leaf,wintermist,desert,varaxite,bosses]
 miningRsc = [
@@ -69,12 +65,13 @@ smithingRsc = [
     ]
 woodcuttingRsc = [
     ['Pine Log', 922856057909420072], ['Dead Log', 922856079233269780], ['Birch Log', 922856103849623702], ['Applewood', 922856116017299466], ['Willow Log', 922856157587058688],
-    ['Oak Log', 922856175345754163], ['Chestnut Log', 922856194002001960], ['Maple Log', 922856235978588161], ['Olive Log', 922856248985145374], ['Palm Wood', 922856261052149761]
+    ['Oak Log', 922856175345754163], ['Chestnut Log', 922856194002001960], ['Maple Log', 922856235978588161], ['Olive Log', 922856248985145374], ['Palm Wood', 922856261052149761],
+    ['Magic Log', 937002915716005929]
     ]
 craftingRsc = [
     ['Accuracy Relic', 922857047014395904], ['Guarding Relic', 922857046926327899], ['Healing Relic', 922871203033649222], ['Wealth Relic', 922871202773618768],
     ['Power Relic', 922871202907828254], ['Nature Relic', 922871202979135531], ['Fire Relic', 922857046913716286], ['Damage Relic', 922857046762721281],
-    ['Leeching Relic', 922871203079794698], ['Experience Relic', 922871203130134528], ['Cursed Relic', 922857046934708235]
+    ['Leeching Relic', 922871203079794698], ['Experience Relic', 922871203130134528], ['Cursed Relic', 922857046934708235],["Ice Relic",936964378517975040]
     ]
 fishingRsc = [
     ['Anchovies', 922873492137992222], ['Goldfish', 922873492536442940], ['Mackerel', 922873492821672027], ['Squid', 922873493312376862], ['Sardine', 922873493060743189],
@@ -87,6 +84,14 @@ cookingRsc = [
     ['Cooked Eel', 922873530943668235], ['Cooked Anglerfish', 922873530897559602], ['Cooked Trout', 922873531698647101], ['Cooked Bass', 922873530725568592],
     ['Cooked Tuna', 922873531803533382], ['Cooked Lobster', 922873530973036574], ['Cooked Sea Turtle', 922873531547664384], ['Cooked Manta Ray', 922873531195355176],
     ['Cooked Shark', 922873531501510686], ['Cooked Orca', 922873530994003989], ['Cooked Giant Squid', 922873530943680532]
+    ]
+
+tailoringRsc = [    
+    ['Wand',936964379080024135],['Paper',936964378773831721],['Book',936964379092594718],['Ember Tome',936964378283114506],
+    ['Leech Tome',936964378891264001],['Haunt Tome',936964378002071573],['Fire Staff',936964377867862048],['Ice Staff',936964378606075934],
+    ['Nature Staff',936964379067437096],['Cursed Staff',936964377964322857],['Icicle Tome',936964378689957958],['Ignite Tome',936964378748674090],
+    ['Drain Tome',936964378077564988],['Curse Tome',936964377867874305],['Freeze Tome',936964378337615912],['Inferno Tome',936964378568318977],
+    ['Consume Tome',936964377565876286],['Torture Tome',936964379147124786],['Blizzard Tome',936964377712676906]
     ]
 
 baits = {
@@ -110,6 +115,8 @@ skills_id = {
     'Crafting':880221589050916914,
     'Fishing':880221548399697923,
     'Cooking':880221572751847444,
+    'Sailing':937013045404786758,
+    'Tailoring':937013045488648252
     }
 
 
@@ -119,15 +126,17 @@ resources = {
     "Bronze Bar" : 5, "Iron Bar" : 14,"Steel Bar" : 20 , "Crimsteel Bar" : 130,
     "Silver Bar" : 1000,"Gold Bar" : 20000,"Gold Nugget" : 60,"Mythan Bar" : 5000,"Cobalt Bar" : 15000,"Varaxite Bar" : 20000,
     "Pine Log": 10,"Dead Log": 20,"Birch Log": 50,"Applewood": 115,"Willow Log": 350,"Oak Log": 475,
-    "Chestnut Log": 650,"Maple Log": 1200,"Olive Log": 1800,"Palm Wood": 2600,
+    "Chestnut Log": 650,"Maple Log": 1200,"Olive Log": 1800,"Palm Wood": 2600,"Magic Log":4000,
     "Accuracy Relic":3 ,"Guarding Relic":8 ,"Healing Relic":18 ,"Wealth Relic":40 ,"Power Relic":105 ,"Nature Relic":200 ,
-    "Fire Relic":425 ,"Damage Relic":900 ,"leeching Relic":1400 ,"Experience Relic":1850 ,"Cursed Relic":2750,
+    "Fire Relic":425 ,"Damage Relic":900 ,"leeching Relic":1400 ,"Experience Relic":1850 ,"Cursed Relic":2750 ,"Ice relic":3000,
     "Anchovies":10,"Goldfish":20,"Mackerel":50,"Squid":115,"Sardine":375,"Eel":500,"Anglerfish":625,
     "Trout":750,"Jellyfish":900,"Trout+Jellyfish":825,"Bass":1350,"Herringbone":1700,"Bass+Herringbone":1525,"Tuna":2000,"Lobster":3500,"Sea Turtle":6500,"Lobster+SeaTurtle":5000,
     "Manta Ray":9500,"Shark":14500,"Orca":29500,"Giant Squid":55000,"Shark+Orca":22000,"Shark+Orca+GiantSquid":33000,
     "Cooked Anchovies":10,"Cooked Mackerel":50,"Cooked Squid":115,"Cooked Sardine":375,"Cooked Eel":500,"Cooked Anglerfish":30,
     "Cooked Trout":750,"Cooked Bass":1350,"Cooked Tuna":2000,"Cooked Lobster":3500,"Cooked Sea Turtle":6500,
-    "Cooked Manta Ray":9500,"Cooked Shark":13500,"Cooked Orca":22500,"Cooked Giant Squid":41500
+    "Cooked Manta Ray":9500,"Cooked Shark":13500,"Cooked Orca":22500,"Cooked Giant Squid":41500,
+    "Paper":10,"Wand":10,"Book":10,"Fire Staff":10,"Nature Staff":10,"Ice Staff":10,"Cursed Staff":10,"Icicle Tome":10,"Freeze Tome":10,"Blizzard Tome":10,"Leech Tome":10,
+    "Drain Tome":10,"Consume Tome":10,"Haunt Tome":10,"Curse Tome":10,"Torture Tome":10,"Ember Tome":10,"Ignite Tome":10,"Inferno Tome":10
     }
 
 Combat_boosts = ["NoBoost","XpRelics","XpPotion","XpRelics+XpPotion","WorldBoost","XpRelics+WorldBoost","XpPotion+WorldBoost","XpRelics+XpPotion+WorldBoost"]
@@ -137,14 +146,23 @@ Woodcutting_boosts = ["NoBoost","WorldBoost"]
 Crafting_boosts = ["NoBoost","WorldBoost"]
 Fishing_boosts = ["NoBoost","WorldBoost"]
 Cooking_boosts = ["NoBoost","WorldBoost"]
+Tailoring_boosts = ["NoBoost","WorldBoost"]
 boostsValues = {
     "NoBoost":1.0,"InfHammer":1.04,"InfRing":1.04,"XpRelics":1.05,"XpPotion":1.05,"ProsNeck":1.05,"InfHammer+InfRing":1.0816,"XpRelics+XpPotion":1.1025,"WorldBoost":1.5,"hammer+WorldBoost":1.56,
     "Ring+WorldBoost":1.56,"XpRelics+WorldBoost":1.575,"XpPotion+WorldBoost":1.575,"ProsNeck+WorldBoost":1.575,"Hammer+Ring+WorldBoost":1.6224,"XpRelics+XpPotion+WorldBoost":1.65375
     }
 
-boosts = [Combat_boosts,Mining_boosts,Smithing_boosts,Woodcutting_boosts,Crafting_boosts,Fishing_boosts,Cooking_boosts]
+boosts = [Combat_boosts,Mining_boosts,Smithing_boosts,Woodcutting_boosts,Crafting_boosts,Fishing_boosts,Cooking_boosts,Tailoring_boosts]
 
-skill_rsc = [combatRsc,miningRsc, smithingRsc, woodcuttingRsc, craftingRsc, fishingRsc,cookingRsc]
+skill_rsc = [combatRsc,miningRsc, smithingRsc, woodcuttingRsc, craftingRsc, fishingRsc,cookingRsc,tailoringRsc]
+
+soontm = (
+    "Paper","Wand","Book","Fire Staff","Nature Staff",
+    "Ice Staff","Cursed Staff","Icicle Tome","Freeze Tome",
+    "Blizzard Tome","Leech Tome","Drain Tome","Consume Tome",
+    "Haunt Tome","Curse Tome","Torture Tome","Ember Tome",
+    "Ignite Tome","Inferno Tome","Ice Relic","Magic Log"
+    )
 
 
 
@@ -204,6 +222,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
             SelectOption(label=f'Crafting',value='4', emoji=bot.get_emoji(880221589050916914)),
             SelectOption(label=f'Fishing',value='5', emoji=bot.get_emoji(880221548399697923)),
             SelectOption(label=f'Cooking',value='6', emoji=bot.get_emoji(880221572751847444)),
+            SelectOption(label=f'Tailoring',value='7', emoji=bot.get_emoji(937013045488648252)),
             SelectOption(label=f'🚫 Cancel',value='Cancel')
             
             ],custom_id='SelectSkill'
@@ -271,7 +290,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                     await interaction2.send('You have canceled the interaction')
 
                 else:
-                    combat_emoji = emoji=bot.get_emoji(880221520121700362)
+                    combat_emoji = bot.get_emoji(880221520121700362)
                     mob_emoji = bot.get_emoji(combatRsc[int(choice3)-1][int(choice4)-1][1])
                     mob_used = combatRsc[int(choice3)-1][int(choice4)-1][0]
                     mob_xp = combat[mob_used]
@@ -336,7 +355,10 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                 xp_needed = getxp(int(curLv),int(tarLv),float(curPerc),float(tarPerc))
                 rsc_needed = math.ceil(xp_needed / rsc_xp) + 1
                 rsc_needed_boosted = math.ceil(rsc_needed / bst_used)
-                if chosen_skill.lower() == "fishing" :
+                if rsc_used in soontm :
+                    soontm_emoji = bot.get_emoji(937004848107356220)
+                    result = f'Those Resources will be added {soontm_emoji} . Please be patient.'
+                elif chosen_skill.lower() == "fishing" :
                     bait_id = baits_id[rsc_used]
                     bait_emoji = bot.get_emoji(bait_id)
                     result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\n Fish : {resource_emoji} ' + rsc_used + f'\n Bait : {bait_emoji} ' + baits[rsc_used] + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + f'{rsc_needed_boosted:,}'
