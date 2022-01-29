@@ -1,5 +1,6 @@
 import psycopg2
 from psycopg2 import Error
+from main import connection
 
 def insert(count):
     cur = connection.cursor()
