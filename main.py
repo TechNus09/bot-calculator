@@ -94,7 +94,7 @@ tailoringRsc = [
     ['Consume Tome',936964377565876286],['Torture Tome',936964379147124786],['Blizzard Tome',936964377712676906]
     ]
 
-    Wand = 936964379080024135
+Wand = 936964379080024135
 
 baits = {
     "Anchovies":" Earthworm", "Goldfish":" Earthworm", "Mackerel":"Iceworm", "Squid":"Iceworm", "Sardine":"Corpseworm", "Eel":"ToxicWorm", "Anglerfish":"Sandworm", 
