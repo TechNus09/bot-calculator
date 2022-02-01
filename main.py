@@ -128,7 +128,7 @@ resources = {
     "Pine Log": 10,"Dead Log": 20,"Birch Log": 50,"Applewood": 115,"Willow Log": 350,"Oak Log": 475,
     "Chestnut Log": 650,"Maple Log": 1200,"Olive Log": 1800,"Palm Wood": 2600,"Magic Log":4000,
     "Accuracy Relic":3 ,"Guarding Relic":8 ,"Healing Relic":18 ,"Wealth Relic":40 ,"Power Relic":105 ,"Nature Relic":200 ,
-    "Fire Relic":425 ,"Damage Relic":900 ,"leeching Relic":1400 ,"Experience Relic":1850 ,"Cursed Relic":2750 ,"Ice relic":3000,
+    "Fire Relic":425 ,"Damage Relic":900 ,"Leeching Relic":1400 ,"Experience Relic":1850 ,"Cursed Relic":2750 ,"Ice relic":3000,
     "Anchovies":10,"Goldfish":20,"Mackerel":50,"Squid":115,"Sardine":375,"Eel":500,"Anglerfish":625,
     "Trout":750,"Jellyfish":900,"Trout+Jellyfish":825,"Bass":1350,"Herringbone":1700,"Bass+Herringbone":1525,"Tuna":2000,"Lobster":3500,"Sea Turtle":6500,"Lobster+SeaTurtle":5000,
     "Manta Ray":9500,"Shark":14500,"Orca":29500,"Giant Squid":55000,"Shark+Orca":22000,"Shark+Orca+GiantSquid":33000,
