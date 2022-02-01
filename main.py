@@ -135,7 +135,7 @@ resources = {
     "Cooked Anchovies":10,"Cooked Mackerel":50,"Cooked Squid":115,"Cooked Sardine":375,"Cooked Eel":500,"Cooked Anglerfish":30,
     "Cooked Trout":750,"Cooked Bass":1350,"Cooked Tuna":2000,"Cooked Lobster":3500,"Cooked Sea Turtle":6500,
     "Cooked Manta Ray":9500,"Cooked Shark":13500,"Cooked Orca":22500,"Cooked Giant Squid":41500,
-    "Paper":10,"Wand":10,"Book":10,"Fire Staff":10,"Nature Staff":10,"Ice Staff":10,"Cursed Staff":10,"Icicle Tome":10,"Freeze Tome":10,"Blizzard Tome":10,"Leech Tome":10,
+    "Paper":1,"Wand":10,"Book":10,"Fire Staff":10,"Nature Staff":10,"Ice Staff":10,"Cursed Staff":10,"Icicle Tome":10,"Freeze Tome":10,"Blizzard Tome":10,"Leech Tome":10,
     "Drain Tome":10,"Consume Tome":10,"Haunt Tome":10,"Curse Tome":10,"Torture Tome":10,"Ember Tome":10,"Ignite Tome":10,"Inferno Tome":10
     }
 
