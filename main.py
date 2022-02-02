@@ -86,14 +86,23 @@ cookingRsc = [
     ['Cooked Shark', 922873531501510686], ['Cooked Orca', 922873530994003989], ['Cooked Giant Squid', 922873530943680532]
     ]
 
-tailoringRsc = [    
+tailoringRsc = [['Wand',936964379080024135],
     ['Paper',936964378773831721],['Book',936964379092594718],['Ember Tome',936964378283114506],
     ['Leech Tome',936964378891264001],['Haunt Tome',936964378002071573],['Fire Staff',936964377867862048],['Ice Staff',936964378606075934],
     ['Nature Staff',936964379067437096],['Cursed Staff',936964377964322857],['Icicle Tome',936964378689957958],['Ignite Tome',936964378748674090],
     ['Drain Tome',936964378077564988],['Curse Tome',936964377867874305],['Freeze Tome',936964378337615912],['Inferno Tome',936964378568318977],
-    ['Consume Tome',936964377565876286],['Torture Tome',936964379147124786],['Blizzard Tome',936964377712676906],
-    ['Wand',936964379080024135]]
+    ['Consume Tome',936964377565876286],['Torture Tome',936964379147124786],['Blizzard Tome',936964377712676906]
+    ]
 
+
+
+tlr = {'Wand':936964379080024135,
+    'Paper':936964378773831721,'Book':936964379092594718,'Ember Tome':936964378283114506],
+    'Leech Tome':936964378891264001,'Haunt Tome':936964378002071573,'Fire Staff':936964377867862048,'Ice Staff':936964378606075934,
+    'Nature Staff':936964379067437096,'Cursed Staff':936964377964322857,'Icicle Tome':936964378689957958,'Ignite Tome':936964378748674090,
+    'Drain Tome':936964378077564988,'Curse Tome':936964377867874305,'Freeze Tome':936964378337615912,'Inferno Tome':936964378568318977,
+    'Consume Tome':936964377565876286,'Torture Tome':936964379147124786,'Blizzard Tome':936964377712676906
+    }
 
 
 baits = {
@@ -406,6 +415,26 @@ async def help(ctx):
     invite_msg = f"invite : Send Bot's Invite Link to DM"
     help_msg = ping_msg + '\n' + calc_msg + '\n' + invite_msg
     await ctx.send(help_msg)
+
+@bot.command()
+async def magic(ctx):
+
+    guide_msg =   f'Lv. 1-3 : 100 papers \n
+                    Lv. 3-5 : 27 book \n
+                    Lv. 5-9 : 35 Ember Tomes \n
+                    Lv. 9-15 : 62 Leech Tomes \n
+                    Lv. 15-20 : 79 Haunt Tomes \n
+                    Lv. 20-29 : 270 Icicle Tomes \n
+                    Lv. 29-33 : 113 Ignite Tomes \n
+                    Lv. 33-40 : 375 Drain Tomes \n
+                    Lv. 40-60 : 5193 Curse Tomes \n
+                    Lv. 60-68 : 2501 Freeze Tomes \n
+                    Lv. 68-76 : 4943 Inferno Tomes \n
+                    Lv. 76-80 : 3576 Consume Tomes \n
+                    Lv. 80-92 : 27567 Torture Tomes'
+
+
+
 
 @bot.command()
 async def servers(ctx):
