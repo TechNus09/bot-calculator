@@ -413,7 +413,8 @@ async def help(ctx):
     ping_msg = f'ping : Show Ping'
     calc_msg = f'calc [currentLvl] [targetLvl] [current%]* [target%]* \n     (current% and target% are optionals)'
     invite_msg = f"invite : Send Bot's Invite Link to DM"
-    help_msg = ping_msg + '\n' + calc_msg + '\n' + invite_msg
+    guide = f'guide : show a guide for tailoring skill (up to Lv. 92)'
+    help_msg = ping_msg + '\n' + calc_msg +'\n' + guide + '\n' + invite_msg
     await ctx.send(help_msg)
 
 @bot.command()
@@ -432,7 +433,7 @@ async def guide(ctx):
     emoji_11 = bot.get_emoji(tlr['Consume Tome'])
     emoji_12 = bot.get_emoji(tlr['Torture Tome'])
 
-    guide_msg = f'\n Lv. 1-3 : 100 {emoji_0} Papers '+f'\n Lv. 3-5 : 27 {emoji_1} Books '+f'\n Lv. 5-9 : 35 {emoji_2} Ember Tomes '+f'\n Lv. 9-15 : 62 {emoji_3} Leech Tomes '+f'\n Lv. 15-20 : 79 {emoji_4} Haunt Tomes '+f'\n Lv. 20-29 : 270 {emoji_5} Icicle Tomes '+f'\n Lv. 29-33 : 113 {emoji_6} Ignite Tomes '+f'\n Lv. 33-40 : 375 {emoji_7} Drain Tomes '+f'\n Lv. 40-60 : 5193 {emoji_8} Curse Tomes '+f'\n Lv. 60-68 : 2501 {emoji_9} Freeze Tomes '+f'\n Lv. 68-76 : 4943 {emoji_10} Inferno Tomes' + f'\n Lv. 76-80 : 3576 {emoji_11} Consume Tomes '+f'\n Lv. 80-92 : 27567 {emoji_12} Torture Tomes'
+    guide_msg = f'\n Lv. 1-3 : 100 {emoji_0} Papers '+f'\n Lv. 3-5 : 27 {emoji_1} Books '+f'\n Lv. 5-9 : 35 {emoji_2} Ember Tomes '+f'\n Lv. 9-15 : 62 {emoji_3} Leech Tomes '+f'\n Lv. 15-20 : 79 {emoji_4} Haunt Tomes '+f'\n Lv. 20-29 : 270 {emoji_5} Icicle Tomes '+f'\n Lv. 29-33 : 113 {emoji_6} Ignite Tomes '+f'\n Lv. 33-40 : 375 {emoji_7} Drain Tomes '+f'\n Lv. 40-60 : 5,193 {emoji_8} Curse Tomes '+f'\n Lv. 60-68 : 2,501 {emoji_9} Freeze Tomes '+f'\n Lv. 68-76 : 4,943 {emoji_10} Inferno Tomes' + f'\n Lv. 76-80 : 3,576 {emoji_11} Consume Tomes '+f'\n Lv. 80-92 : 27,567 {emoji_12} Torture Tomes'
 
     embed=d.Embed(title="Tailoring Guide", description=guide_msg, color=0x0000FF)
     await ctx.send(embed=embed)
