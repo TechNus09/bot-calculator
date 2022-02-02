@@ -137,8 +137,8 @@ resources = {
     "Cooked Anchovies":10,"Cooked Mackerel":50,"Cooked Squid":115,"Cooked Sardine":375,"Cooked Eel":500,"Cooked Anglerfish":30,
     "Cooked Trout":750,"Cooked Bass":1350,"Cooked Tuna":2000,"Cooked Lobster":3500,"Cooked Sea Turtle":6500,
     "Cooked Manta Ray":9500,"Cooked Shark":13500,"Cooked Orca":22500,"Cooked Giant Squid":41500,
-    "Wand":12,"Paper":1,"Book":5,"Fire Staff":500,"Nature Staff":500,"Ice Staff":500,"Cursed Staff":500,"Icicle Tome":40,"Freeze Tome":10,"Blizzard Tome":10,"Leech Tome":20,
-    "Drain Tome":20,"Consume Tome":10,"Haunt Tome":28,"Curse Tome":10,"Torture Tome":10,"Ember Tome":12,"Ignite Tome":10,"Inferno Tome":10
+    "Wand":12,"Paper":1,"Book":5,"Fire Staff":500,"Nature Staff":500,"Ice Staff":500,"Cursed Staff":500,"Icicle Tome":40,"Freeze Tome":900,"Blizzard Tome":4300,"Leech Tome":20,
+    "Drain Tome":115,"Consume Tome":2110,"Haunt Tome":28,"Curse Tome":200,"Torture Tome":2750,"Ember Tome":12,"Ignite Tome":100,"Inferno Tome":1380
     }
 
 Combat_boosts = ["NoBoost","XpRelics","XpPotion","XpRelics+XpPotion","WorldBoost","XpRelics+WorldBoost","XpPotion+WorldBoost","XpRelics+XpPotion+WorldBoost"]
@@ -157,15 +157,6 @@ boostsValues = {
 boosts = [Combat_boosts,Mining_boosts,Smithing_boosts,Woodcutting_boosts,Crafting_boosts,Fishing_boosts,Cooking_boosts,Tailoring_boosts]
 
 skill_rsc = [combatRsc,miningRsc, smithingRsc, woodcuttingRsc, craftingRsc, fishingRsc,cookingRsc,tailoringRsc]
-
-soontm = (
-    "Freeze Tome","Blizzard Tome",
-    "Drain Tome","Consume Tome",
-    "Curse Tome","Torture Tome",
-    "Ignite Tome","Inferno Tome"
-    )
-
-
 
 lvltab = [
     0,46,99,159,229,309,401,507,628,768,928,1112,1324,1567,1847,2168,2537,2961,3448,4008,4651,5389,6237,7212,8332,9618,11095,12792,14742,16982,19555,22510,25905,29805,34285,
@@ -356,10 +347,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                 xp_needed = getxp(int(curLv),int(tarLv),float(curPerc),float(tarPerc))
                 rsc_needed = math.ceil(xp_needed / rsc_xp) + 1
                 rsc_needed_boosted = math.ceil(rsc_needed / bst_used)
-                if rsc_used in soontm :
-                    soontm_emoji = bot.get_emoji(937004848107356220)
-                    result = f'Those Resources will be added {soontm_emoji} . Please be patient.'
-                elif chosen_skill.lower() == "fishing" :
+                if chosen_skill.lower() == "fishing" :
                     bait_id = baits_id[rsc_used]
                     bait_emoji = bot.get_emoji(bait_id)
                     result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\n Fish : {resource_emoji} ' + rsc_used + f'\n Bait : {bait_emoji} ' + baits[rsc_used] + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + f'{rsc_needed_boosted:,}'
