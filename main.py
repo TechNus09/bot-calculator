@@ -301,7 +301,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                     xp_needed = getxp(int(curLv),int(tarLv),float(curPerc),float(tarPerc))
                     rsc_needed = math.ceil(xp_needed / mob_xp) + 1
                     rsc_needed_boosted = math.ceil(rsc_needed / bst_used)
-                    result = f'Skill : {combat_emoji} Combat' + '\n Mob : ' + f'{mob_emoji}' + mob_used + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + f'{rsc_needed_boosted:,}'
+                    result = f' Skill : {combat_emoji} Combat' + '\n Mob : ' + f'{mob_emoji}' + mob_used + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + f'{rsc_needed_boosted:,}'
                     
                     await ctx.send(result)
 
@@ -359,9 +359,9 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                 if chosen_skill.lower() == "fishing" :
                     bait_id = baits_id[rsc_used]
                     bait_emoji = bot.get_emoji(bait_id)
-                    result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\n Fish : {resource_emoji} ' + rsc_used + f'\n Bait : {bait_emoji} ' + baits[rsc_used] + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + f'{rsc_needed_boosted:,}'
+                    result = f' Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\n Fish : {resource_emoji} ' + rsc_used + f'\n Bait : {bait_emoji} ' + baits[rsc_used] + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + f'{rsc_needed_boosted:,}'
                 else :
-                    result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\n Resource : {resource_emoji} ' + rsc_used + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + f'{rsc_needed_boosted:,}'
+                    result = f' Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\n Resource : {resource_emoji} ' + rsc_used + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + f'{rsc_needed_boosted:,}'
                 
                 await ctx.send(result)
 
@@ -432,19 +432,19 @@ async def guide(ctx):
     emoji_11 = bot.get_emoji(tlr['Consume Tome'])
     emoji_12 = bot.get_emoji(tlr['Torture Tome'])
 
-    guide_msg =   f'Lv. 1-3 : 100 {emoji_0} Papers \n
-                    Lv. 3-5 : 27 {emoji_1} Book \n
-                    Lv. 5-9 : 35 {emoji_2} Ember Tomes \n
-                    Lv. 9-15 : 62 {emoji_3} Leech Tomes \n
-                    Lv. 15-20 : 79 {emoji_4} Haunt Tomes \n
-                    Lv. 20-29 : 270 {emoji_5} Icicle Tomes \n
-                    Lv. 29-33 : 113 {emoji_6} Ignite Tomes \n
-                    Lv. 33-40 : 375 {emoji_7} Drain Tomes \n
-                    Lv. 40-60 : 5193 {emoji_8} Curse Tomes \n
-                    Lv. 60-68 : 2501 {emoji_9} Freeze Tomes \n
-                    Lv. 68-76 : 4943 {emoji_10} Inferno Tomes \n
-                    Lv. 76-80 : 3576 {emoji_11} Consume Tomes \n
-                    Lv. 80-92 : 27567 {emoji_12} Torture Tomes'
+    guide_msg =     f'Lv. 1-3 : 100 {emoji_0} Papers \n'
+                  + f'Lv. 3-5 : 27 {emoji_1} Book \n'
+                  + f'Lv. 5-9 : 35 {emoji_2} Ember Tomes \n'
+                  + f'Lv. 9-15 : 62 {emoji_3} Leech Tomes \n'
+                  + f'Lv. 15-20 : 79 {emoji_4} Haunt Tomes \n'
+                  + f'Lv. 20-29 : 270 {emoji_5} Icicle Tomes \n'
+                  + f'Lv. 29-33 : 113 {emoji_6} Ignite Tomes \n'
+                  + f'Lv. 33-40 : 375 {emoji_7} Drain Tomes \n'
+                  + f'Lv. 40-60 : 5193 {emoji_8} Curse Tomes \n'
+                  + f'Lv. 60-68 : 2501 {emoji_9} Freeze Tomes \n'
+                  + f'Lv. 68-76 : 4943 {emoji_10} Inferno Tomes \n'
+                  + f'Lv. 76-80 : 3576 {emoji_11} Consume Tomes \n'
+                  + f'Lv. 80-92 : 27567 {emoji_12} Torture Tomes'
 
     embed=d.Embed(title="Tailoring Guide", 
                                description=guide_msg, 
