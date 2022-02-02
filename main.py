@@ -130,15 +130,15 @@ resources = {
     "Pine Log": 10,"Dead Log": 20,"Birch Log": 50,"Applewood": 115,"Willow Log": 350,"Oak Log": 475,
     "Chestnut Log": 650,"Maple Log": 1200,"Olive Log": 1800,"Palm Wood": 2600,"Magic Log":4000,
     "Accuracy Relic":3 ,"Guarding Relic":8 ,"Healing Relic":18 ,"Wealth Relic":40 ,"Power Relic":105 ,"Nature Relic":200 ,
-    "Fire Relic":425 ,"Damage Relic":900 ,"Leeching Relic":1400 ,"Experience Relic":1850 ,"Cursed Relic":2750 ,"Ice relic":3000,
+    "Fire Relic":425 ,"Damage Relic":900 ,"Leeching Relic":1400 ,"Experience Relic":1850 ,"Cursed Relic":2750 ,"Ice relic":4120,
     "Anchovies":10,"Goldfish":20,"Mackerel":50,"Squid":115,"Sardine":375,"Eel":500,"Anglerfish":625,
     "Trout":750,"Jellyfish":900,"Trout+Jellyfish":825,"Bass":1350,"Herringbone":1700,"Bass+Herringbone":1525,"Tuna":2000,"Lobster":3500,"Sea Turtle":6500,"Lobster+SeaTurtle":5000,
     "Manta Ray":9500,"Shark":14500,"Orca":29500,"Giant Squid":55000,"Shark+Orca":22000,"Shark+Orca+GiantSquid":33000,
     "Cooked Anchovies":10,"Cooked Mackerel":50,"Cooked Squid":115,"Cooked Sardine":375,"Cooked Eel":500,"Cooked Anglerfish":30,
     "Cooked Trout":750,"Cooked Bass":1350,"Cooked Tuna":2000,"Cooked Lobster":3500,"Cooked Sea Turtle":6500,
     "Cooked Manta Ray":9500,"Cooked Shark":13500,"Cooked Orca":22500,"Cooked Giant Squid":41500,
-    "Wand":12,"Paper":1,"Book":5,"Fire Staff":10,"Nature Staff":10,"Ice Staff":10,"Cursed Staff":10,"Icicle Tome":10,"Freeze Tome":10,"Blizzard Tome":10,"Leech Tome":20,
-    "Drain Tome":20,"Consume Tome":10,"Haunt Tome":10,"Curse Tome":10,"Torture Tome":10,"Ember Tome":12,"Ignite Tome":10,"Inferno Tome":10
+    "Wand":12,"Paper":1,"Book":5,"Fire Staff":500,"Nature Staff":500,"Ice Staff":500,"Cursed Staff":500,"Icicle Tome":40,"Freeze Tome":10,"Blizzard Tome":10,"Leech Tome":20,
+    "Drain Tome":20,"Consume Tome":10,"Haunt Tome":28,"Curse Tome":10,"Torture Tome":10,"Ember Tome":12,"Ignite Tome":10,"Inferno Tome":10
     }
 
 Combat_boosts = ["NoBoost","XpRelics","XpPotion","XpRelics+XpPotion","WorldBoost","XpRelics+WorldBoost","XpPotion+WorldBoost","XpRelics+XpPotion+WorldBoost"]
@@ -159,11 +159,10 @@ boosts = [Combat_boosts,Mining_boosts,Smithing_boosts,Woodcutting_boosts,Craftin
 skill_rsc = [combatRsc,miningRsc, smithingRsc, woodcuttingRsc, craftingRsc, fishingRsc,cookingRsc,tailoringRsc]
 
 soontm = (
-    "Fire Staff","Nature Staff",
-    "Ice Staff","Cursed Staff","Icicle Tome","Freeze Tome",
-    "Blizzard Tome","Drain Tome","Consume Tome",
-    "Haunt Tome","Curse Tome","Torture Tome",
-    "Ignite Tome","Inferno Tome","Ice Relic"
+    "Freeze Tome","Blizzard Tome",
+    "Drain Tome","Consume Tome",
+    "Curse Tome","Torture Tome",
+    "Ignite Tome","Inferno Tome"
     )
 
 
