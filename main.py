@@ -432,19 +432,19 @@ async def guide(ctx):
     emoji_11 = bot.get_emoji(tlr['Consume Tome'])
     emoji_12 = bot.get_emoji(tlr['Torture Tome'])
 
-    guide_msg =     f'Lv. 1-3 : 100 {emoji_0} Papers \n'
-                  + f'Lv. 3-5 : 27 {emoji_1} Book \n'
-                  + f'Lv. 5-9 : 35 {emoji_2} Ember Tomes \n'
-                  + f'Lv. 9-15 : 62 {emoji_3} Leech Tomes \n'
-                  + f'Lv. 15-20 : 79 {emoji_4} Haunt Tomes \n'
-                  + f'Lv. 20-29 : 270 {emoji_5} Icicle Tomes \n'
-                  + f'Lv. 29-33 : 113 {emoji_6} Ignite Tomes \n'
-                  + f'Lv. 33-40 : 375 {emoji_7} Drain Tomes \n'
-                  + f'Lv. 40-60 : 5193 {emoji_8} Curse Tomes \n'
-                  + f'Lv. 60-68 : 2501 {emoji_9} Freeze Tomes \n'
-                  + f'Lv. 68-76 : 4943 {emoji_10} Inferno Tomes \n'
-                  + f'Lv. 76-80 : 3576 {emoji_11} Consume Tomes \n'
-                  + f'Lv. 80-92 : 27567 {emoji_12} Torture Tomes'
+    guide_msg = f'Lv. 1-3 : 100 {emoji_0} Papers \n'+
+                f'Lv. 3-5 : 27 {emoji_1} Book \n'+
+                f'Lv. 5-9 : 35 {emoji_2} Ember Tomes \n'+
+                f'Lv. 9-15 : 62 {emoji_3} Leech Tomes \n'+
+                f'Lv. 15-20 : 79 {emoji_4} Haunt Tomes \n'+
+                f'Lv. 20-29 : 270 {emoji_5} Icicle Tomes \n'+
+                f'Lv. 29-33 : 113 {emoji_6} Ignite Tomes \n'+
+                f'Lv. 33-40 : 375 {emoji_7} Drain Tomes \n'+
+                f'Lv. 40-60 : 5193 {emoji_8} Curse Tomes \n'+
+                f'Lv. 60-68 : 2501 {emoji_9} Freeze Tomes \n'+
+                f'Lv. 68-76 : 4943 {emoji_10} Inferno Tomes \n'+
+                f'Lv. 76-80 : 3576 {emoji_11} Consume Tomes \n'+
+                f'Lv. 80-92 : 27567 {emoji_12} Torture Tomes'
 
     embed=d.Embed(title="Tailoring Guide", 
                                description=guide_msg, 
