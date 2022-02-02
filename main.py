@@ -418,20 +418,33 @@ async def help(ctx):
 
 @bot.command()
 async def magic(ctx):
+    emoji_0 = bot.get_emoji(tlr['Paper'])
+    emoji_1 = bot.get_emoji(tlr['Book'])
+    emoji_2 = bot.get_emoji(tlr['Ember Tome'])
+    emoji_3 = bot.get_emoji(tlr['Leech Tome'])
+    emoji_4 = bot.get_emoji(tlr['Haunt Tome'])
+    emoji_5 = bot.get_emoji(tlr['Icicle Tome'])
+    emoji_6 = bot.get_emoji(tlr['Ignite Tome'])
+    emoji_7 = bot.get_emoji(tlr['Drain Tome'])
+    emoji_8 = bot.get_emoji(tlr['Curse Tome'])
+    emoji_9 = bot.get_emoji(tlr['Freeze Tome'])
+    emoji_10 = bot.get_emoji(tlr['Inferno Tome'])
+    emoji_11 = bot.get_emoji(tlr['Consume Tome'])
+    emoji_12 = bot.get_emoji(tlr['Torture Tome'])
 
-    guide_msg =   f'Lv. 1-3 : 100 papers \n
-                    Lv. 3-5 : 27 book \n
-                    Lv. 5-9 : 35 Ember Tomes \n
-                    Lv. 9-15 : 62 Leech Tomes \n
-                    Lv. 15-20 : 79 Haunt Tomes \n
-                    Lv. 20-29 : 270 Icicle Tomes \n
-                    Lv. 29-33 : 113 Ignite Tomes \n
-                    Lv. 33-40 : 375 Drain Tomes \n
-                    Lv. 40-60 : 5193 Curse Tomes \n
-                    Lv. 60-68 : 2501 Freeze Tomes \n
-                    Lv. 68-76 : 4943 Inferno Tomes \n
-                    Lv. 76-80 : 3576 Consume Tomes \n
-                    Lv. 80-92 : 27567 Torture Tomes'
+    guide_msg =   f'Lv. 1-3 : 100 emoji_0 Papers \n
+                    Lv. 3-5 : 27 emoji_1 Book \n
+                    Lv. 5-9 : 35 emoji_2 Ember Tomes \n
+                    Lv. 9-15 : 62 emoji_3 Leech Tomes \n
+                    Lv. 15-20 : 79 emoji_4 Haunt Tomes \n
+                    Lv. 20-29 : 270 emoji_5 Icicle Tomes \n
+                    Lv. 29-33 : 113 emoji_6 Ignite Tomes \n
+                    Lv. 33-40 : 375 emoji_7 Drain Tomes \n
+                    Lv. 40-60 : 5193 emoji_8 Curse Tomes \n
+                    Lv. 60-68 : 2501 emoji_9 Freeze Tomes \n
+                    Lv. 68-76 : 4943 emoji_10 Inferno Tomes \n
+                    Lv. 76-80 : 3576 emoji_11 Consume Tomes \n
+                    Lv. 80-92 : 27567 emoji_12 Torture Tomes'
 
 
 
