@@ -395,15 +395,11 @@ async def calc(ctx,curLv,tarLv,curPerc=None,tarPerc=None):
         curPerc='0'
     if tarPerc is None:
         tarPerc='0'
-    if ( ctx.author.id == 678547104205111315 or 407429963642568704 ) and ( ctx.channel.id == 929269842102599701 ) :
-        path = bot.get_emoji(881431318104252437) 
-        await ctx.send(f"Nabs aren't allowed here! {path} ")
-    else: 
-        await selectionTest(ctx,curLv,tarLv,curPerc,tarPerc)
-        counter = retrieve()
-        counter = counter + 1
-        print(counter)
-        update(counter)
+    await selectionTest(ctx,curLv,tarLv,curPerc,tarPerc)
+    counter = retrieve()
+    counter = counter + 1
+    print(counter)
+    update(counter)
 
 @bot.command()
 async def invite(ctx):
