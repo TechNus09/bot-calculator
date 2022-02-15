@@ -401,6 +401,21 @@ async def calc(ctx,curLv,tarLv,curPerc=None,tarPerc=None):
     print(counter)
     update(counter)
 
+
+@bot.command()
+async def pm(ctx,curLv,tarLv,curPerc=None,tarPerc=None):
+    if curPerc is None:
+        curPerc='0'
+    if tarPerc is None:
+        tarPerc='0'
+    member = ctx.author
+    channel_m = await member.create_dm()
+    await selectionTest(channel_m,curLv,tarLv,curPerc,tarPerc)
+ 
+
+
+
+
 @bot.command()
 async def invite(ctx):
     e = d.Embed(title="Click The Button To Invite Me", color=0x00ff00)
