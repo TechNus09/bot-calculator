@@ -216,7 +216,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
     skill_msg = await ctx.send(content='Skill :',components=[Select(
         placeholder='Select Skill !',
         options=[
-            SelectOption(label=f'Combat',value='0', emoji=bot.get_emoji(880221520121700362)),
+            SelectOption(label=f'Combat (melee/magic)',value='0', emoji=bot.get_emoji(880221520121700362)),
             SelectOption(label=f'Mining',value='1', emoji=bot.get_emoji(880221690049732638)),
             SelectOption(label=f'Smiting',value='2', emoji=bot.get_emoji(880221615374360648)),
             SelectOption(label=f'woodcutting',value='3', emoji=bot.get_emoji(880221633913163796)),
@@ -301,7 +301,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                     xp_needed = getxp(int(curLv),int(tarLv),float(curPerc),float(tarPerc))
                     rsc_needed = math.ceil(xp_needed / mob_xp) + 1
                     rsc_needed_boosted = math.ceil(rsc_needed / bst_used)
-                    result = f' Skill : {combat_emoji} Combat' + '\n Mob : ' + f'{mob_emoji}' + mob_used + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + f'{rsc_needed_boosted:,}'
+                    result = f' Skill : {combat_emoji} Combat (melee/magic)' + '\n Mob : ' + f'{mob_emoji} ' + mob_used + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + f'{rsc_needed_boosted:,}'
                     
                     await ctx.send(result)
 
@@ -367,158 +367,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
 
 
 
-async def selectionPM(ctx,curLv,tarLv,curPerc,tarPerc,member):
-    skill_msg = await ctx.send(content='Skill :',components=[Select(
-        placeholder='Select Skill !',
-        options=[
-            SelectOption(label=f'Combat',value='0', emoji=bot.get_emoji(880221520121700362)),
-            SelectOption(label=f'Mining',value='1', emoji=bot.get_emoji(880221690049732638)),
-            SelectOption(label=f'Smiting',value='2', emoji=bot.get_emoji(880221615374360648)),
-            SelectOption(label=f'woodcutting',value='3', emoji=bot.get_emoji(880221633913163796)),
-            SelectOption(label=f'Crafting',value='4', emoji=bot.get_emoji(880221589050916914)),
-            SelectOption(label=f'Fishing',value='5', emoji=bot.get_emoji(880221548399697923)),
-            SelectOption(label=f'Cooking',value='6', emoji=bot.get_emoji(880221572751847444)),
-            SelectOption(label=f'Tailoring',value='7', emoji=bot.get_emoji(937013045488648252)),
-            SelectOption(label=f'🚫 Cancel',value='Cancel')
-            
-            ],custom_id='SelectSkill'
-    )])
-    interaction = await bot.wait_for('select_option',
-    check=lambda inter: inter.custom_id == 'SelectSkill')
-    await skill_msg.delete()
-    choice = interaction.values[0]
-    if choice == 'Cancel' :
-        await interaction.send('You have canceled the interaction')
-    elif choice == '0':
-        location_list = locations
-        temp_list = []
-        for i in range(len(location_list)):
-            temp_list.append(SelectOption(label=location_list[i],value=str(i+1)))#add locations emoji = bot.get_emoji(emoji_id)
-        temp_list.append(SelectOption(label="Cancel",value="Cancel"))
-        resource_msg = await ctx.send(content='Location :',components=[Select(
-        placeholder='Select Location !',
-        options=temp_list
-        
-        ,custom_id='SelectLoc'
-        )])
-        interaction3 = await bot.wait_for('select_option',
-        check=lambda inter: inter.custom_id == 'SelectLoc')
-        await resource_msg.delete()
-        choice3 = interaction3.values[0]
-        if choice3 == 'Cancel' :
-            await interaction3.send('You have canceled the interaction')
-        else:
-            mob_list = combatRsc[int(choice3)-1]
-            temp_list = []
-            for i in range(len(mob_list)):
-                temp_list.append(SelectOption(label=mob_list[i][0],value=str(i+1),emoji=bot.get_emoji(mob_list[i][1])))#add mobs emoji = bot.get_emoji(emoji_id)
-            temp_list.append(SelectOption(label="Cancel",value="Cancel"))
-            resource_msg = await ctx.send(content='Mob :',components=[Select(
-            placeholder='Select Mob !',
-            options=temp_list
-            
-            ,custom_id='SelectMob'
-            )])
-            interaction4 = await bot.wait_for('select_option',
-            check=lambda inter: inter.custom_id == 'SelectMob')
-            await resource_msg.delete()
-            choice4 = interaction4.values[0]
-            if choice4 == 'Cancel' :
-                await interaction4.send('You have canceled the interaction')
 
-            else:
-                boost_list = Combat_boosts
-                temp_list1 = []
-                for i in range(len(boost_list)):
-                    temp_list1.append(SelectOption(label=boost_list[i],value=str(i+1)))#add boosts emoji = bot.get_emoji(emoji_id)
-                temp_list1.append(SelectOption(label="Cancel",value="Cancel"))
-                boost_msg = await ctx.send(content='Boost :',components=[Select(
-                placeholder='Select Boost !',
-                options=temp_list1
-                
-                ,custom_id='SelectBst'
-                )])
-                interaction2 = await bot.wait_for('select_option',
-                check=lambda inter: inter.custom_id == 'SelectBst')
-                await boost_msg.delete()
-                choice2 = interaction2.values[0]
-                if choice2 == 'Cancel' :
-                    await interaction2.send('You have canceled the interaction')
-
-                else:
-                    combat_emoji = bot.get_emoji(880221520121700362)
-                    mob_emoji = bot.get_emoji(combatRsc[int(choice3)-1][int(choice4)-1][1])
-                    mob_used = combatRsc[int(choice3)-1][int(choice4)-1][0]
-                    mob_xp = combat[mob_used]
-                    bst_name = boost_list[int(choice2)-1]
-                    bst_used = boostsValues[bst_name]
-                    chosen_skill = skills[int(choice)] 
-                    xp_needed = getxp(int(curLv),int(tarLv),float(curPerc),float(tarPerc))
-                    rsc_needed = math.ceil(xp_needed / mob_xp) + 1
-                    rsc_needed_boosted = math.ceil(rsc_needed / bst_used)
-                    result = f' Skill : {combat_emoji} Combat' + '\n Mob : ' + f'{mob_emoji}' + mob_used + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + f'{rsc_needed_boosted:,}'
-                    
-                    await ctx.send(result)
-
-        
-    else:
-        rsc_list = skill_rsc[int(choice)]
-        temp_list = []
-        for i in range(len(rsc_list)):
-            temp_list.append(SelectOption(label=rsc_list[i][0],value=str(i+1),emoji=bot.get_emoji(rsc_list[i][1])))#add resources emoji = bot.get_emoji(emoji_id)
-        temp_list.append(SelectOption(label="Cancel",value="Cancel"))
-        resource_msg = await ctx.send(content='Resource :',components=[Select(
-        placeholder='Select Resource !',
-        options=temp_list
-        
-        ,custom_id='SelectRsc'
-        )])
-        interaction1 = await bot.wait_for('select_option',
-        check=lambda inter: inter.custom_id == 'SelectRsc')
-        await resource_msg.delete()
-        choice1 = interaction1.values[0]
-        if choice1 == 'Cancel' :
-            await interaction1.send('You have canceled the interaction')
-
-        else:
-            boost_list = boosts[int(choice)]
-            temp_list1 = []
-            for i in range(len(boost_list)):
-                temp_list1.append(SelectOption(label=boost_list[i],value=str(i+1)))#add boosts emoji = bot.get_emoji(emoji_id)
-            temp_list1.append(SelectOption(label="Cancel",value="Cancel"))
-            boost_msg = await ctx.send(content='Boost :',components=[Select(
-            placeholder='Select Boost !',
-            options=temp_list1
-            
-            ,custom_id='SelectBst'
-            )])
-            interaction2 = await bot.wait_for('select_option',
-            check=lambda inter: inter.custom_id == 'SelectBst')
-            await boost_msg.delete()
-            choice2 = interaction2.values[0]
-            if choice2 == 'Cancel' :
-                await interaction1.send('You have canceled the interaction')
-
-            else:
-                rsc_used = skill_rsc[int(choice)][int(choice1)-1][0]
-                rsc_xp = resources[rsc_used]
-                bst_name = boost_list[int(choice2)-1]
-                bst_used = boostsValues[bst_name]
-                chosen_skill = skills[int(choice)] 
-                skill_id = skills_id[chosen_skill.capitalize()]
-                skill_emoji = bot.get_emoji(skill_id)
-                resource_emoji = bot.get_emoji(skill_rsc[int(choice)][int(choice1)-1][1])
-                xp_needed = getxp(int(curLv),int(tarLv),float(curPerc),float(tarPerc))
-                rsc_needed = math.ceil(xp_needed / rsc_xp) + 1
-                rsc_needed_boosted = math.ceil(rsc_needed / bst_used)
-                if chosen_skill.lower() == "fishing" :
-                    bait_id = baits_id[rsc_used]
-                    bait_emoji = bot.get_emoji(bait_id)
-                    result = f' Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\n Fish : {resource_emoji} ' + rsc_used + f'\n Bait : {bait_emoji} ' + baits[rsc_used] + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + f'{rsc_needed_boosted:,}'
-                else :
-                    result = f' Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\n Resource : {resource_emoji} ' + rsc_used + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + f'{rsc_needed_boosted:,}'
-                
-                await ctx.send(result)
 
 
 ###########################################################################################
@@ -554,18 +403,6 @@ async def calc(ctx,curLv,tarLv,curPerc=None,tarPerc=None):
     counter = counter + 1
     print(counter)
     update(counter)
-
-
-@bot.command()
-async def pm(ctx,curLv,tarLv,curPerc=None,tarPerc=None):
-    if curPerc is None:
-        curPerc='0'
-    if tarPerc is None:
-        tarPerc='0'
-    member = ctx.author
-    channel_m = await member.create_dm()
-    await selectionPM(channel_m,curLv,tarLv,curPerc,tarPerc,member)
- 
 
 
 
