@@ -96,7 +96,7 @@ tailoringRsc = [['Wand',936964379080024135],
 
 
 
-tlr = {'Wand':936964379080024135,
+tlr = {'Wand':936964379080024135,'Magic Essence':946207478012580001,
     'Paper':936964378773831721,'Book':936964379092594718,'Ember Tome':936964378283114506,
     'Leech Tome':936964378891264001,'Haunt Tome':936964378002071573,'Fire Staff':936964377867862048,'Ice Staff':936964378606075934,
     'Nature Staff':936964379067437096,'Cursed Staff':936964377964322857,'Icicle Tome':936964378689957958,'Ignite Tome':936964378748674090,
@@ -129,6 +129,24 @@ skills_id = {
     'Sailing':937013045404786758,
     'Tailoring':937013045488648252
     }
+tlr_ess = {#Tome : [ess_amount,relic_type,relic_emoji_id]
+       'Ember Tome':[1,"Fire Relic",922857046913716286],
+       'Leech Tome':[1,"Nature Relic",922871202979135531],
+       'Haunt Tome':[1,"Cursed Relic",922857046934708235],
+       'Fire Staff':[25,"Fire Relic",922857046913716286],
+       'Ice Staff':[25,"Ice Relic",936964378517975040], 
+       'Nature Staff':[25,"Nature Relic",922871202979135531],
+       'Cursed Staff':[25,"Cursed Relic",922857046934708235],
+       'Icicle Tome':[1,"Ice Relic",936964378517975040],
+       'Ignite Tome':[5,"Fire Relic",922857046913716286], 
+       'Drain Tome':[3,"Nature Relic",922871202979135531],
+       'Curse Tome':[3,"Cursed Relic",922857046934708235],
+       'Freeze Tome':[3,"Ice Relic",936964378517975040],
+       'Inferno Tome':[10,"Fire Relic",922857046913716286], 
+       'Consume Tome':[6,"Nature Relic",922871202979135531],
+       'Torture Tome':[6,"Cursed Relic",922857046934708235],
+       'Blizzard Tome':[6,"Ice Relic",936964378517975040]
+   }
 
 
 resources = {
@@ -301,7 +319,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                     xp_needed = getxp(int(curLv),int(tarLv),float(curPerc),float(tarPerc))
                     rsc_needed = math.ceil(xp_needed / mob_xp) + 1
                     rsc_needed_boosted = math.ceil(rsc_needed / bst_used)
-                    result = f' Skill : {combat_emoji} Combat (melee/magic)' + '\n Mob : ' + f'{mob_emoji} ' + mob_used + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + f'{rsc_needed_boosted:,}'
+                    result = f'Skill : {combat_emoji} Combat (melee/magic)' + '\nMob : ' + f'{mob_emoji} ' + mob_used + '\nCurrent Lvl : ' + curLv + ' ' + curPerc + '%' + '\nTarget Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\nBoost : ' + bst_name + '\nQuantity Needed : ' + f'{rsc_needed_boosted:,}'
                     
                     await ctx.send(result)
 
@@ -359,9 +377,27 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                 if chosen_skill.lower() == "fishing" :
                     bait_id = baits_id[rsc_used]
                     bait_emoji = bot.get_emoji(bait_id)
-                    result = f' Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\n Fish : {resource_emoji} ' + rsc_used + f'\n Bait : {bait_emoji} ' + baits[rsc_used] + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + f'{rsc_needed_boosted:,}'
+                    result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\nFish : {resource_emoji} ' + rsc_used + f'\nBait : {bait_emoji} ' + baits[rsc_used] + '\nCurrent Lvl : ' + curLv + ' ' + curPerc + '%' + '\nTarget Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\nBoost : ' + bst_name + '\nQuantity Needed : ' + f'{rsc_needed_boosted:,}'
+                elif chosen_skill.lower() == "tailoring" :
+                    if rsc_used in tlr_ess:
+                        if rsc_used == 'Wand' :
+                            ess_emoji = bot.get_emoji(tlr['Magic Essence'])
+                            ess_needed = rsc_needed_boosted * 15
+                            logs_needed = rsc_needed_boosted * 2
+                            log_emoji = bot.get_emoji(922856175345754163)
+                            result = f'Skill : {skill_emoji} ' + 'Tailoring ' + f'\nResource : {resource_emoji} ' + rsc_used + '\nCurrent Lvl : ' + curLv + ' ' + curPerc + '%' + '\nTarget Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\nBoost : ' + bst_name + '\nQuantity Needed : {rsc_emoji} ' + f'{rsc_needed_boosted:,}' + '\nMagic Essences Needed : {ess_emoji} ' + f'{ess_needed:,}' + '\nLogs Needed : {log_emoji} ' + f'{logs_needed:,}'
+                        else :
+                            book_emoji = bot.get_emoji(tlr['Book'])
+                            ess_emoji = bot.get_emoji(tlr['Magic Essence"])
+                            ess_coef = tlr_ess[rsc_used][0]
+                            ess_needed = rsc_needed_boosted * ess_coef
+                            rlc_used = tlr_ess[rsc_used][1]             
+                            rlc_emoji = bot.get_emoji(tlr_ess[rsc_used][2])               
+                            result = f'Skill : {skill_emoji} ' + 'Tailoring ' + f'\nResource : {resource_emoji} ' + rsc_used + '\nCurrent Lvl : ' + curLv + ' ' + curPerc + '%' + '\nTarget Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\nBoost : ' + bst_name + '\nBooks Needed : ' + {book_emoji} + f' {rsc_needed_boosted:,}'+ '\nEssences Needed : ' + {ess_emoji} + f' {ess_needed:,}'+ '\nRelics Needed : ' + {rlc_emoji} + f' {rsc_needed_boosted:,}'
+                    else :
+                        result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\nResource : {resource_emoji} ' + rsc_used + '\nCurrent Lvl : ' + curLv + ' ' + curPerc + '%' + '\nTarget Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\nBoost : ' + bst_name + '\nQuantity Needed : ' + f'{rsc_needed_boosted:,}'
                 else :
-                    result = f' Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\n Resource : {resource_emoji} ' + rsc_used + '\n Current Lvl : ' + curLv + ' ' + curPerc + '%' + '\n target Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\n Boost : ' + bst_name + '\n Quantity Needed : ' + f'{rsc_needed_boosted:,}'
+                    result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\nResource : {resource_emoji} ' + rsc_used + '\nCurrent Lvl : ' + curLv + ' ' + curPerc + '%' + '\nTarget Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\nBoost : ' + bst_name + '\nQuantity Needed : ' + f'{rsc_needed_boosted:,}'
                 
                 await ctx.send(result)
 
