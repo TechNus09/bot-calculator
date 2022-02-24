@@ -386,13 +386,13 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                         ess_needed = rsc_needed_boosted * ess_coef
                         rlc_used = tlr_ess[rsc_used][1]             
                         rlc_emoji = bot.get_emoji(tlr_ess[rsc_used][2])               
-                        result = f'Skill : {skill_emoji} ' + 'Tailoring ' + f'\nResource : {resource_emoji} ' + rsc_used + '\nCurrent Lvl : ' + curLv + ' ' + curPerc + '%' + '\nTarget Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\nBoost : ' + bst_name + f'\nBooks Needed : {book_emoji}' + f' {rsc_needed_boosted:,}'+ f'\nEssences Needed : {ess_emoji}' + f' {ess_needed:,}'+ f'\nRelics Needed : {rlc_emoji}' + f' {rsc_needed_boosted:,}'
+                        result = f'Skill : {skill_emoji} ' + 'Tailoring ' + f'\nResource : {resource_emoji} ' + rsc_used + '\nLvlUp : (' + curLv + ')[' + curPerc + '%] --> (' + tarLv + ')[' + tarPerc + '%]' + '\nBoost : ' + bst_name + f'\nBooks Needed : {book_emoji}' + f' {rsc_needed_boosted:,}'+ f'\nEssences Needed : {ess_emoji}' + f' {ess_needed:,}'+ f'\nRelics Needed : {rlc_emoji}' + f' {rsc_needed_boosted:,}'
                     elif rsc_used == 'Wand' :
                             ess_emoji = bot.get_emoji(tlr['Magic Essence'])
                             ess_needed = rsc_needed_boosted * 15
                             logs_needed = rsc_needed_boosted * 2
                             log_emoji = bot.get_emoji(922856175345754163)
-                            result = f'Skill : {skill_emoji} ' + 'Tailoring ' + f'\nResource : {resource_emoji} ' + rsc_used + '\nCurrent Lvl : ' + curLv + ' ' + curPerc + '%' + '\nTarget Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\nBoost : ' + bst_name + f'\nQuantity Needed : {rsc_emoji} ' + f'{rsc_needed_boosted:,}' + f'\nMagic Essences Needed : {ess_emoji} ' + f'{ess_needed:,}' + f'\nLogs Needed : {log_emoji} ' + f'{logs_needed:,}'
+                            result = f'Skill : {skill_emoji} ' + 'Tailoring ' + f'\nResource : {resource_emoji} ' + rsc_used + '\nLvlUp : (' + curLv + ')[' + curPerc + '%] --> (' + tarLv + ')[' + tarPerc + '%]' + '\nBoost : ' + bst_name + f'\nQuantity Needed : {resource_emoji} ' + f'{rsc_needed_boosted:,}' + f'\nMagic Essences Needed : {ess_emoji} ' + f'{ess_needed:,}' + f'\nLogs Needed : {log_emoji} ' + f'{logs_needed:,}'
                     else :
                         result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\nResource : {resource_emoji} ' + rsc_used + '\nCurrent Lvl : ' + curLv + ' ' + curPerc + '%' + '\nTarget Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\nBoost : ' + bst_name + '\nQuantity Needed : ' + f'{rsc_needed_boosted:,}'
                 else :
