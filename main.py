@@ -57,16 +57,16 @@ combatRsc=[bright_leaf,wintermist,desert,varaxite,bosses]
 miningRsc = [
     ['Tin Ore', 922854986357043280], ['Copper Ore', 922855022180577290], ['Iron Ore', 922855050156585020], ['Salt', 922855080099729429], ['Coal', 922855065990099004],
     ['Silver Ore', 922855652198592586], ['Crimsteel Ore', 922855136513126460], ['Gold Ore', 922855152073981952], ['Pink Salt', 922855174563831829], ['Mythan Ore', 922855187343884341],
-    ['Sandstone', 922855639816994836], ['Cobalt Ore', 922855201956823080], ['Varaxium', 922855217937133568], ['Black Salt', 922855247943204865]
+    ['Sandstone', 922855639816994836], ['Cobalt Ore', 922855201956823080], ['Varaxium', 922855217937133568], ['Black Salt', 922855247943204865], ['Magic Ore', 951258039535673375]
     ]
 smithingRsc = [
     ['Bronze Bar', 922855760193531904], ['Iron Bar', 922855781030842409], ['Steel Bar', 922855918633377802], ['Crimsteel Bar', 922855814669156442], ['Silver Bar', 922855844989784074],
-    ['Gold Nugget', 922865224091070555], ['Gold Bar', 922855856901586994], ['Mythan Bar', 922855882117775360], ['Cobalt Bar', 922855936161349653], ['Varaxite Bar', 922855948719108126]
-    ]
+    ['Gold Nugget', 922865224091070555], ['Gold Bar', 922855856901586994], ['Mythan Bar', 922855882117775360], ['Cobalt Bar', 922855936161349653], ['Varaxite Bar', 922855948719108126],
+    ['Magic Bar', 951240793153216563] ]
 woodcuttingRsc = [
     ['Pine Log', 922856057909420072], ['Dead Log', 922856079233269780], ['Birch Log', 922856103849623702], ['Applewood', 922856116017299466], ['Willow Log', 922856157587058688],
-    ['Oak Log', 922856175345754163], ['Chestnut Log', 922856194002001960], ['Maple Log', 922856235978588161], ['Olive Log', 922856248985145374], ['Palm Wood', 922856261052149761],
-    ['Magic Log', 937002915716005929]
+    ['Oak Log', 922856175345754163], ['Chestnut Log', 922856194002001960], ['Maple Log', 922856235978588161], ['Olive Log', 922856248985145374],['Magic Log', 937002915716005929],
+    ['Palm Wood', 922856261052149761]
     ]
 craftingRsc = [
     ['Accuracy Relic', 922857047014395904], ['Guarding Relic', 922857046926327899], ['Healing Relic', 922871203033649222], ['Wealth Relic', 922871202773618768],
@@ -95,8 +95,7 @@ tailoringRsc = [['Wand',936964379080024135],
     ]
 
 
-
-tlr = {'Wand':936964379080024135,'Magic Essence':946207478012580001,
+tlr = {'Wand':936964379080024135,'Magic Essence':951240829312311296,
     'Paper':936964378773831721,'Book':936964379092594718,'Ember Tome':936964378283114506,
     'Leech Tome':936964378891264001,'Haunt Tome':936964378002071573,'Fire Staff':936964377867862048,'Ice Staff':936964378606075934,
     'Nature Staff':936964379067437096,'Cursed Staff':936964377964322857,'Icicle Tome':936964378689957958,'Ignite Tome':936964378748674090,
@@ -151,11 +150,11 @@ tlr_ess = {#Tome : [ess_amount,relic_type,relic_emoji_id]
 
 resources = {
     "Tin Ore": 10, "Copper Ore": 10, "Iron Ore" : 50,"Salt": 80, "Coal": 115, "Silver Ore": 135, "Crimsteel Ore": 350,
-    "Gold Ore": 400, "Pink Salt" : 500, "Mythan Ore": 650, "Sandstone": 1100, "Cobalt Ore": 1200, "Varaxium": 1800, "Black Salt": 2500,
+    "Gold Ore": 400, "Pink Salt" : 500, "Mythan Ore": 650, "Sandstone": 1100, "Cobalt Ore": 1200, "Varaxium": 1800, "Black Salt": 2500, " Magic Ore": 3200,
     "Bronze Bar" : 5, "Iron Bar" : 14,"Steel Bar" : 20 , "Crimsteel Bar" : 130,
-    "Silver Bar" : 1000,"Gold Bar" : 20000,"Gold Nugget" : 60,"Mythan Bar" : 5000,"Cobalt Bar" : 15000,"Varaxite Bar" : 20000,
+    "Silver Bar" : 1000,"Gold Bar" : 20000,"Gold Nugget" : 60,"Mythan Bar" : 5000,"Cobalt Bar" : 15000,"Varaxite Bar" : 20000,"Magic Bar" : 25000,
     "Pine Log": 10,"Dead Log": 20,"Birch Log": 50,"Applewood": 115,"Willow Log": 350,"Oak Log": 475,
-    "Chestnut Log": 650,"Maple Log": 1200,"Olive Log": 1800,"Palm Wood": 2600,"Magic Log":4000,
+    "Chestnut Log": 650,"Maple Log": 1200,"Olive Log": 1800,"Magic Log": 2600,"Palm Wood": 4000,
     "Accuracy Relic":3 ,"Guarding Relic":8 ,"Healing Relic":18 ,"Wealth Relic":40 ,"Power Relic":105 ,"Nature Relic":200 ,
     "Fire Relic":425 ,"Damage Relic":900 ,"Leeching Relic":1400 ,"Experience Relic":1850 ,"Cursed Relic":2750 ,"Ice Relic":4120,
     "Anchovies":10,"Goldfish":20,"Mackerel":50,"Squid":115,"Sardine":375,"Eel":500,"Anglerfish":625,
