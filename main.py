@@ -71,7 +71,7 @@ woodcuttingRsc = [
 craftingRsc = [
     ['Accuracy Relic', 922857047014395904], ['Guarding Relic', 922857046926327899], ['Healing Relic', 922871203033649222], ['Wealth Relic', 922871202773618768],
     ['Power Relic', 922871202907828254], ['Nature Relic', 922871202979135531], ['Fire Relic', 922857046913716286], ['Damage Relic', 922857046762721281],
-    ['Leeching Relic', 922871203079794698], ['Experience Relic', 922871203130134528], ['Cursed Relic', 922857046934708235],["Ice Relic",936964378517975040]
+    ['Leeching Relic', 922871203079794698], ['Experience Relic', 922871203130134528],["Ice Relic",936964378517975040], ['Cursed Relic', 922857046934708235]
     ]
 fishingRsc = [
     ['Anchovies', 922873492137992222], ['Goldfish', 922873492536442940], ['Mackerel', 922873492821672027], ['Squid', 922873493312376862], ['Sardine', 922873493060743189],
@@ -156,7 +156,7 @@ resources = {
     "Pine Log": 10,"Dead Log": 20,"Birch Log": 50,"Applewood": 115,"Willow Log": 350,"Oak Log": 475,
     "Chestnut Log": 650,"Maple Log": 1200,"Olive Log": 1800,"Magic Log": 2600,"Palm Wood": 4000,
     "Accuracy Relic":3 ,"Guarding Relic":8 ,"Healing Relic":18 ,"Wealth Relic":40 ,"Power Relic":105 ,"Nature Relic":200 ,
-    "Fire Relic":425 ,"Damage Relic":900 ,"Leeching Relic":1400 ,"Experience Relic":1850 ,"Cursed Relic":2750 ,"Ice Relic":4120,
+    "Fire Relic":425 ,"Damage Relic":900 ,"Leeching Relic":1400 ,"Experience Relic":1850 ,"Ice Relic":2750 ,"Cursed Relic":4120,
     "Anchovies":10,"Goldfish":20,"Mackerel":50,"Squid":115,"Sardine":375,"Eel":500,"Anglerfish":625,
     "Trout":750,"Jellyfish":900,"Trout+Jellyfish":825,"Bass":1350,"Herringbone":1700,"Bass+Herringbone":1525,"Tuna":2000,"Lobster":3500,"Sea Turtle":6500,"Lobster+SeaTurtle":5000,
     "Manta Ray":9500,"Shark":14500,"Orca":29500,"Giant Squid":55000,"Shark+Orca":22000,"Shark+Orca+GiantSquid":33000,
