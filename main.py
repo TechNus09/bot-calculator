@@ -152,7 +152,7 @@ tlr_ess = {#Tome : [ess_amount,relic_type,relic_emoji_id]
 
 resources = {
     "Tin Ore": 10, "Copper Ore": 10, "Iron Ore" : 50,"Salt": 80, "Coal": 115, "Silver Ore": 135, "Crimsteel Ore": 350,
-    "Gold Ore": 400, "Pink Salt" : 500, "Mythan Ore": 650, "Sandstone": 1100, "Cobalt Ore": 1200, "Varaxium": 1800, "Black Salt": 2500, " Magic Ore": 3200,
+    "Gold Ore": 400, "Pink Salt" : 500, "Mythan Ore": 650, "Sandstone": 1100, "Cobalt Ore": 1200, "Varaxium": 1800, "Black Salt": 2500, "Magic Ore": 3200,
     "Bronze Bar" : 5, "Iron Bar" : 14,"Steel Bar" : 20 , "Crimsteel Bar" : 130,
     "Silver Bar" : 1000,"Gold Bar" : 20000,"Gold Nugget" : 60,"Mythan Bar" : 5000,"Cobalt Bar" : 15000,"Varaxite Bar" : 20000,"Magic Bar" : 25000,
     "Pine Log": 10,"Dead Log": 20,"Birch Log": 50,"Applewood": 115,"Willow Log": 350,"Oak Log": 475,
