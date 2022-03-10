@@ -8,7 +8,6 @@ import psycopg2
 from psycopg2 import Error
 from db_helper import update ,retrieve ,insert
 
-
 invite_url = 'https://discord.com/api/oauth2/authorize?client_id=891750013774991370&permissions=139586783296&scope=bot%20applications.commands'
 
 combat={
@@ -57,7 +56,7 @@ combatRsc=[bright_leaf,wintermist,desert,varaxite,bosses]
 miningRsc = [
     ['Tin Ore', 922854986357043280], ['Copper Ore', 922855022180577290], ['Iron Ore', 922855050156585020], ['Salt', 922855080099729429], ['Coal', 922855065990099004],
     ['Silver Ore', 922855652198592586], ['Crimsteel Ore', 922855136513126460], ['Gold Ore', 922855152073981952], ['Pink Salt', 922855174563831829], ['Mythan Ore', 922855187343884341],
-    ['Sandstone', 922855639816994836], ['Cobalt Ore', 922855201956823080], ['Varaxium', 922855217937133568], ['Black Salt', 922855247943204865], ['Magic Ore', 951258039535673375]
+    ['Sandstone', 922855639816994836], ['Cobalt Ore', 922855201956823080], ['Varaxium', 922855217937133568], ['Black Salt', 922855247943204865], ['Magic Ore', 951482813759242290]
     ]
 smithingRsc = [
     ['Bronze Bar', 922855760193531904], ['Iron Bar', 922855781030842409], ['Steel Bar', 922855918633377802], ['Crimsteel Bar', 922855814669156442], ['Silver Bar', 922855844989784074],
