@@ -87,11 +87,13 @@ cookingRsc = [
     ]
 
 tailoringRsc = [['Wand',936964379080024135],
-    ['Paper',936964378773831721],['Book',936964379092594718],['Ember Tome',936964378283114506],
-    ['Leech Tome',936964378891264001],['Haunt Tome',936964378002071573],['Fire Staff',936964377867862048],['Ice Staff',936964378606075934],
-    ['Nature Staff',936964379067437096],['Cursed Staff',936964377964322857],['Icicle Tome',936964378689957958],['Ignite Tome',936964378748674090],
-    ['Drain Tome',936964378077564988],['Curse Tome',936964377867874305],['Freeze Tome',936964378337615912],['Inferno Tome',936964378568318977],
-    ['Consume Tome',936964377565876286],['Blizzard Tome',936964377712676906],['Torture Tome',936964379147124786]
+    ['Paper',936964378773831721],['Book',936964379092594718],
+    ['Ember Tome',936964378283114506],['Leech Tome',936964378891264001],['Icicle Tome',936964378689957958],
+    ['Fire Staff',936964377867862048],['Ice Staff',936964378606075934],
+    ['Nature Staff',936964379067437096],['Cursed Staff',936964377964322857],
+    ['Haunt Tome',936964378002071573],
+    ['Ignite Tome',936964378748674090],['Drain Tome',936964378077564988],['Freeze Tome',936964378337615912],['Curse Tome',936964377867874305],
+    ['Inferno Tome',936964378568318977],['Consume Tome',936964377565876286],['Blizzard Tome',936964377712676906],['Torture Tome',936964379147124786]
     ]
 
 
@@ -163,8 +165,8 @@ resources = {
     "Cooked Anchovies":10,"Cooked Mackerel":50,"Cooked Squid":115,"Cooked Sardine":375,"Cooked Eel":500,"Cooked Anglerfish":30,
     "Cooked Trout":750,"Cooked Bass":1350,"Cooked Tuna":2000,"Cooked Lobster":3500,"Cooked Sea Turtle":6500,
     "Cooked Manta Ray":9500,"Cooked Shark":13500,"Cooked Orca":22500,"Cooked Giant Squid":41500,
-    "Wand":12,"Paper":1,"Book":5,"Fire Staff":500,"Nature Staff":500,"Ice Staff":500,"Cursed Staff":500,"Icicle Tome":40,"Freeze Tome":900,"Blizzard Tome":2750,"Leech Tome":20,
-    "Drain Tome":115,"Consume Tome":2110,"Haunt Tome":28,"Curse Tome":200,"Torture Tome":4300,"Ember Tome":12,"Ignite Tome":100,"Inferno Tome":1380
+    "Wand":12,"Paper":1,"Book":5,"Fire Staff":500,"Nature Staff":500,"Ice Staff":500,"Cursed Staff":500,"Icicle Tome":28,"Freeze Tome":200,"Blizzard Tome":2750,"Leech Tome":20,
+    "Drain Tome":115,"Consume Tome":2110,"Haunt Tome":40,"Curse Tome":900,"Torture Tome":4300,"Ember Tome":12,"Ignite Tome":100,"Inferno Tome":1380
     }
 
 Combat_boosts = ["NoBoost","XpRelics","XpPotion","XpRelics+XpPotion","WorldBoost","XpRelics+WorldBoost","XpPotion+WorldBoost","XpRelics+XpPotion+WorldBoost"]
