@@ -386,7 +386,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                         ess_needed = rsc_needed_boosted * ess_coef
                         rlc_used = tlr_ess[rsc_used][1]             
                         rlc_emoji = bot.get_emoji(tlr_ess[rsc_used][2])               
-                        result = f'Skill : {skill_emoji} ' + 'Tailoring ' + f'\nResource : {resource_emoji} ' + rsc_used + '\nLvlUp : (' + curLv + ')[' + curPerc + '%] --> (' + tarLv + ')[' + tarPerc + '%]' + '\nBoost : ' + bst_name + f'\nBooks Needed : {book_emoji}' + f' {rsc_needed_boosted:,}'+ f'\nEssences Needed : {ess_emoji}' + f' {ess_needed:,}'+ f'\nRelics Needed : {rlc_emoji}' + f' {rsc_needed_boosted:,}'
+                        result = f'Skill : {skill_emoji} ' + 'Tailoring ' + f'\nResource : {resource_emoji} ' + rsc_used + '\nLvlUp : (' + curLv + ')[' + curPerc + '%] --> (' + tarLv + ')[' + tarPerc + '%]' '\nBoost : ' + bst_name + f'\nQuantity Needed : ' + book_emoji + '||'+ rlc_emoji + f' {rsc_needed_boosted:,}'+ f'\nEssences Needed : ' + ess_emoji + f' {ess_needed:,}'
                     elif rsc_used == 'Wand' :
                             ess_emoji = bot.get_emoji(tlr['Magic Essence'])
                             ess_needed = rsc_needed_boosted * 15
@@ -444,10 +444,11 @@ async def calc(ctx,curLv,tarLv,curPerc=None,tarPerc=None):
 
 @bot.command()
 async def invite(ctx):
-    e = d.Embed(title="Click The Button To Invite Me", color=0x00ff00)
-    inv = await ctx.send(embeds=[e],components=[Button(style=ButtonStyle.URL, label="Invite Me !", url=invite_url)])
-    time.sleep(5)
-    await inv.edit(embeds=[e],components=[Button(style=ButtonStyle.URL, label="Invite Me !", url=invite_url,disabled=True)])
+    ##e = d.Embed(title="Click The Button To Invite Me", color=0x00ff00)
+    #inv = await ctx.send(embeds=[e],components=[Button(style=ButtonStyle.URL, label="Invite Me !", url=invite_url)])
+    await ctx.send("Sorry, currently the bot is in 100 servers and waiting for verification to be able to join more :(.")
+    #time.sleep(5)
+    #await inv.edit(embeds=[e],components=[Button(style=ButtonStyle.URL, label="Invite Me !", url=invite_url,disabled=True)])
 
 @bot.command()
 async def help(ctx):
