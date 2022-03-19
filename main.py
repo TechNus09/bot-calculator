@@ -319,7 +319,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                     xp_needed = getxp(int(curLv),int(tarLv),float(curPerc),float(tarPerc))
                     rsc_needed = math.ceil(xp_needed / mob_xp) + 1
                     rsc_needed_boosted = math.ceil(rsc_needed / bst_used)
-                    result = f'Skill : {combat_emoji} Combat (melee/magic)' + '\nMob : ' + f'{mob_emoji} ' + mob_used + '\nCurrent Lvl : ' + curLv + ' ' + curPerc + '%' + '\nTarget Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\nBoost : ' + bst_name + '\nQuantity Needed : ' + f'{rsc_needed_boosted:,}'
+                    result = f'Skill : {combat_emoji} Combat (melee/magic)' + '\nMob : ' + f'{mob_emoji} ' + mob_used + '\nLvlUp : (' + curLv + ')[' + curPerc + '%] --> (' + tarLv + ')[' + tarPerc + '%]' + '\nBoost : ' + bst_name + '\nQuantity Needed : ' + f'{rsc_needed_boosted:,}'
                     
                     await ctx.send(result)
 
@@ -377,7 +377,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                 if chosen_skill.lower() == "fishing" :
                     bait_id = baits_id[rsc_used]
                     bait_emoji = bot.get_emoji(bait_id)
-                    result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\nFish : {resource_emoji} ' + rsc_used + f'\nBait : {bait_emoji} ' + baits[rsc_used] + '\nCurrent Lvl : ' + curLv + ' ' + curPerc + '%' + '\nTarget Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\nBoost : ' + bst_name + '\nQuantity Needed : ' + f'{rsc_needed_boosted:,}'
+                    result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\nFish : {resource_emoji} ' + rsc_used + f'\nBait : {bait_emoji} ' + baits[rsc_used] + '\nLvlUp : (' + curLv + ')[' + curPerc + '%] --> (' + tarLv + ')[' + tarPerc + '%]' + '\nBoost : ' + bst_name + '\nQuantity Needed : ' + f'{rsc_needed_boosted:,}'
                 elif chosen_skill.lower() == "tailoring" :
                     if rsc_used in tlr_ess:
                         book_emoji = bot.get_emoji(tlr['Book'])
@@ -394,9 +394,9 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                             log_emoji = bot.get_emoji(922856175345754163)
                             result = f'Skill : {skill_emoji} ' + 'Tailoring ' + f'\nResource : {resource_emoji} ' + rsc_used + '\nLvlUp : (' + curLv + ')[' + curPerc + '%] --> (' + tarLv + ')[' + tarPerc + '%]' + '\nBoost : ' + bst_name + f'\nQuantity Needed : {resource_emoji} ' + f'{rsc_needed_boosted:,}' + f'\nMagic Essences Needed : {ess_emoji} ' + f'{ess_needed:,}' + f'\nLogs Needed : {log_emoji} ' + f'{logs_needed:,}'
                     else :
-                        result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\nResource : {resource_emoji} ' + rsc_used + '\nCurrent Lvl : ' + curLv + ' ' + curPerc + '%' + '\nTarget Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\nBoost : ' + bst_name + '\nQuantity Needed : ' + f'{rsc_needed_boosted:,}'
+                        result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\nResource : {resource_emoji} ' + rsc_used + '\nLvlUp : (' + curLv + ')[' + curPerc + '%] --> (' + tarLv + ')[' + tarPerc + '%]' + '\nBoost : ' + bst_name + '\nQuantity Needed : ' + f'{rsc_needed_boosted:,}'
                 else :
-                    result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\nResource : {resource_emoji} ' + rsc_used + '\nCurrent Lvl : ' + curLv + ' ' + curPerc + '%' + '\nTarget Lvl : ' + tarLv + ' ' + tarPerc + '%' + '\nBoost : ' + bst_name + '\nQuantity Needed : ' + f'{rsc_needed_boosted:,}'
+                    result = f'Skill : {skill_emoji} ' + chosen_skill.capitalize() + f'\nResource : {resource_emoji} ' + rsc_used + '\nLvlUp : (' + curLv + ')[' + curPerc + '%] --> (' + tarLv + ')[' + tarPerc + '%]' + '\nBoost : ' + bst_name + '\nQuantity Needed : ' + f'{rsc_needed_boosted:,}'
                 
                 await ctx.send(result)
 
