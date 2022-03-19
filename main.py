@@ -64,7 +64,7 @@ smithingRsc = [
     ['Magic Bar', 951240793153216563] ]
 woodcuttingRsc = [
     ['Pine Log', 922856057909420072], ['Dead Log', 922856079233269780], ['Birch Log', 922856103849623702], ['Applewood', 922856116017299466], ['Willow Log', 922856157587058688],
-    ['Oak Log', 922856175345754163], ['Chestnut Log', 922856194002001960], ['Maple Log', 922856235978588161], ['Olive Log', 922856248985145374],['Magic Log', 937002915716005929],
+    ['Oak Log', 922856175345754163], ['Chestnut Log', 922856194002001960], ['Maple Log', 922856235978588161], ['Olive Log', 922856248985145374],['Magic Log', 954795411913179197],
     ['Palm Wood', 922856261052149761]
     ]
 craftingRsc = [
@@ -155,7 +155,7 @@ resources = {
     "Bronze Bar" : 5, "Iron Bar" : 14,"Steel Bar" : 20 , "Crimsteel Bar" : 130,
     "Silver Bar" : 1000,"Gold Bar" : 20000,"Gold Nugget" : 60,"Mythan Bar" : 5000,"Cobalt Bar" : 15000,"Varaxite Bar" : 20000,"Magic Bar" : 25000,
     "Pine Log": 10,"Dead Log": 20,"Birch Log": 50,"Applewood": 115,"Willow Log": 350,"Oak Log": 475,
-    "Chestnut Log": 650,"Maple Log": 1200,"Olive Log": 1800,"Magic Log": 2600,"Palm Wood": 4000,
+    "Chestnut Log": 650,"Maple Log": 1200,"Olive Log": 1800,"Magic Log": 3000,"Palm Wood": 3600,
     "Accuracy Relic":3 ,"Guarding Relic":8 ,"Healing Relic":18 ,"Wealth Relic":40 ,"Power Relic":105 ,"Nature Relic":200 ,
     "Fire Relic":425 ,"Damage Relic":900 ,"Leeching Relic":1400 ,"Experience Relic":1850 ,"Ice Relic":2750 ,"Cursed Relic":4120,
     "Anchovies":10,"Goldfish":20,"Mackerel":50,"Squid":115,"Sardine":375,"Eel":500,"Anglerfish":625,
