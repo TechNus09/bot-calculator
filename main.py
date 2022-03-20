@@ -383,10 +383,9 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                         book_emoji = bot.get_emoji(tlr['Book'])
                         ess_emoji = bot.get_emoji(tlr['Magic Essence'])
                         ess_coef = tlr_ess[rsc_used][0]
-                        ess_needed = rsc_needed_boosted * ess_coef
-                        rlc_used = tlr_ess[rsc_used][1]             
+                        ess_needed = rsc_needed_boosted * ess_coef            
                         rlc_emoji = bot.get_emoji(tlr_ess[rsc_used][2])               
-                        result = f'Skill : {skill_emoji} ' + 'Tailoring ' + f'\nResource : {resource_emoji} ' + rsc_used + '\nLvlUp : (' + curLv + ')[' + curPerc + '%] --> (' + tarLv + ')[' + tarPerc + '%]' + '\nBoost : ' + bst_name + f'\nBooks Needed : {book_emoji}' + f' {rsc_needed_boosted:,}'+ f'\nEssences Needed : {ess_emoji}' + f' {ess_needed:,}'+ f'\nRelics Needed : {rlc_emoji}' + f' {rsc_needed_boosted:,}'
+                        result = f'Skill : {skill_emoji} ' + 'Tailoring ' + f'\nResource : {resource_emoji} ' + rsc_used + '\nLvlUp : (' + curLv + ')[' + curPerc + '%] --> (' + tarLv + ')[' + tarPerc + '%]' + '\nBoost : ' + bst_name + f'\nQuantity Needed : ' + book_emoji + '||'+ rlc_emoji + f' {rsc_needed_boosted:,}'+ f'\nEssences Needed : {ess_emoji}' + f' {ess_needed:,}'
                     elif rsc_used == 'Wand' :
                             ess_emoji = bot.get_emoji(tlr['Magic Essence'])
                             ess_needed = rsc_needed_boosted * 15
