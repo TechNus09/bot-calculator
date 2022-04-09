@@ -234,15 +234,15 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
     skill_msg = await ctx.send(content='Skill :',components=[Select(
         placeholder='Select Skill !',
         options=[
-            SelectOption(label=f'Combat (melee/magic)',value='0', emoji=bot.get_emoji(880221520121700362)),
-            SelectOption(label=f'Mining',value='1', emoji=bot.get_emoji(880221690049732638)),
-            SelectOption(label=f'Smiting',value='2', emoji=bot.get_emoji(880221615374360648)),
-            SelectOption(label=f'woodcutting',value='3', emoji=bot.get_emoji(880221633913163796)),
-            SelectOption(label=f'Crafting',value='4', emoji=bot.get_emoji(880221589050916914)),
-            SelectOption(label=f'Fishing',value='5', emoji=bot.get_emoji(880221548399697923)),
-            SelectOption(label=f'Cooking',value='6', emoji=bot.get_emoji(880221572751847444)),
+            SelectOption(label=f'Combat (melee/magic)',value='0', emoji=bot.get_emoji(962217488479834142)),
+            SelectOption(label=f'Mining',value='1', emoji=bot.get_emoji(962217952927698954)),
+            SelectOption(label=f'Smiting',value='2', emoji=bot.get_emoji(945264297167175681)),
+            SelectOption(label=f'woodcutting',value='3', emoji=bot.get_emoji(962217565780865024)),
+            SelectOption(label=f'Crafting',value='4', emoji=bot.get_emoji(922871203130134528)),
+            SelectOption(label=f'Fishing',value='5', emoji=bot.get_emoji(962217539767771217)),
+            SelectOption(label=f'Cooking',value='6', emoji=bot.get_emoji(962217512035053599)),
             SelectOption(label=f'Tailoring',value='7', emoji=bot.get_emoji(937013045488648252)),
-            SelectOption(label=f'🚫 Cancel',value='Cancel')
+            SelectOption(label=f'Cancel',value='Cancel', emoji=bot.get_emoji(937013045488648252)),
             
             ],custom_id='SelectSkill'
     )])
@@ -257,7 +257,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
         temp_list = []
         for i in range(len(location_list)):
             temp_list.append(SelectOption(label=location_list[i],value=str(i+1)))#add locations emoji = bot.get_emoji(emoji_id)
-        temp_list.append(SelectOption(label="Cancel",value="Cancel"))
+        temp_list.append(SelectOption(label="Cancel",value="Cancel", emoji=bot.get_emoji(937013045488648252)))
         resource_msg = await ctx.send(content='Location :',components=[Select(
         placeholder='Select Location !',
         options=temp_list
@@ -275,7 +275,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
             temp_list = []
             for i in range(len(mob_list)):
                 temp_list.append(SelectOption(label=mob_list[i][0],value=str(i+1),emoji=bot.get_emoji(mob_list[i][1])))#add mobs emoji = bot.get_emoji(emoji_id)
-            temp_list.append(SelectOption(label="Cancel",value="Cancel"))
+            temp_list.append(SelectOption(label="Cancel",value="Cancel", emoji=bot.get_emoji(937013045488648252)))
             resource_msg = await ctx.send(content='Mob :',components=[Select(
             placeholder='Select Mob !',
             options=temp_list
@@ -294,7 +294,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
                 temp_list1 = []
                 for i in range(len(boost_list)):
                     temp_list1.append(SelectOption(label=boost_list[i],value=str(i+1)))#add boosts emoji = bot.get_emoji(emoji_id)
-                temp_list1.append(SelectOption(label="Cancel",value="Cancel"))
+                temp_list1.append(SelectOption(label="Cancel",value="Cancel", emoji=bot.get_emoji(937013045488648252)))
                 boost_msg = await ctx.send(content='Boost :',components=[Select(
                 placeholder='Select Boost !',
                 options=temp_list1
@@ -329,7 +329,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
         temp_list = []
         for i in range(len(rsc_list)):
             temp_list.append(SelectOption(label=rsc_list[i][0],value=str(i+1),emoji=bot.get_emoji(rsc_list[i][1])))#add resources emoji = bot.get_emoji(emoji_id)
-        temp_list.append(SelectOption(label="Cancel",value="Cancel"))
+        temp_list.append(SelectOption(label="Cancel",value="Cancel", emoji=bot.get_emoji(937013045488648252)))
         resource_msg = await ctx.send(content='Resource :',components=[Select(
         placeholder='Select Resource !',
         options=temp_list
@@ -348,7 +348,7 @@ async def selectionTest(ctx,curLv,tarLv,curPerc,tarPerc):
             temp_list1 = []
             for i in range(len(boost_list)):
                 temp_list1.append(SelectOption(label=boost_list[i],value=str(i+1)))#add boosts emoji = bot.get_emoji(emoji_id)
-            temp_list1.append(SelectOption(label="Cancel",value="Cancel"))
+            temp_list1.append(SelectOption(label="Cancel",value="Cancel", emoji=bot.get_emoji(937013045488648252)))
             boost_msg = await ctx.send(content='Boost :',components=[Select(
             placeholder='Select Boost !',
             options=temp_list1
