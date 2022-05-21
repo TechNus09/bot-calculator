@@ -8,7 +8,7 @@ import psycopg2
 from psycopg2 import Error
 from db_helper import update ,retrieve ,insert
 
-invite_url = 'https://discord.com/api/oauth2/authorize?client_id=891750013774991370&permissions=139586783296&scope=bot%20applications.commands'
+invite_url = 'https://googles.com'
 
 combat={
     "Bat" : 8 ,"Slime" : 16 ,"Fishing Spider" : 38,"Mashroom" : 46,"Forest Spider" : 55 ,"Forest Bat": 60 ,"Skeletal Snake" : 300  ,"Cave Spider" : 350 ,"Skeletal Bat" : 385 ,"Cave Bat" : 560 ,
