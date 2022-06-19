@@ -445,7 +445,7 @@ async def calc(ctx,curLv,tarLv,curPerc=None,tarPerc=None):
 async def invite(ctx):
     e = d.Embed(title="Click The Button To Invite Me", color=0x00ff00)
     inv = await ctx.send(embeds=[e],components=[Button(style=ButtonStyle.URL, label="Invite Me !", url=invite_url)])
-    await ctx.send("Sorry, currently the bot is in 100 servers and waiting for verification to be able to join more :(.")
+    #await ctx.send("Sorry, currently the bot is in 100 servers and waiting for verification to be able to join more :(.")
     time.sleep(5)
     await inv.edit(embeds=[e],components=[Button(style=ButtonStyle.URL, label="Invite Me !", url=invite_url,disabled=True)])
 
