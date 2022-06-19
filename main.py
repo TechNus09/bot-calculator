@@ -8,7 +8,7 @@ import psycopg2
 from psycopg2 import Error
 from db_helper import update ,retrieve ,insert
 
-invite_url = 'https://googles.com'
+invite_url = 'https://discord.com/api/oauth2/authorize?client_id=891750013774991370&permissions=139586783296&scope=bot%20applications.commands'
 
 combat={
     "Bat" : 8 ,"Slime" : 16 ,"Fishing Spider" : 38,"Mashroom" : 46,"Forest Spider" : 55 ,"Forest Bat": 60 ,"Skeletal Snake" : 300  ,"Cave Spider" : 350 ,"Skeletal Bat" : 385 ,"Cave Bat" : 560 ,
@@ -443,19 +443,19 @@ async def calc(ctx,curLv,tarLv,curPerc=None,tarPerc=None):
 
 @bot.command()
 async def invite(ctx):
-    ##e = d.Embed(title="Click The Button To Invite Me", color=0x00ff00)
-    #inv = await ctx.send(embeds=[e],components=[Button(style=ButtonStyle.URL, label="Invite Me !", url=invite_url)])
+    e = d.Embed(title="Click The Button To Invite Me", color=0x00ff00)
+    inv = await ctx.send(embeds=[e],components=[Button(style=ButtonStyle.URL, label="Invite Me !", url=invite_url)])
     await ctx.send("Sorry, currently the bot is in 100 servers and waiting for verification to be able to join more :(.")
-    #time.sleep(5)
-    #await inv.edit(embeds=[e],components=[Button(style=ButtonStyle.URL, label="Invite Me !", url=invite_url,disabled=True)])
+    time.sleep(5)
+    await inv.edit(embeds=[e],components=[Button(style=ButtonStyle.URL, label="Invite Me !", url=invite_url,disabled=True)])
 
 @bot.command()
 async def help(ctx):
     ping_msg = f'ping : Show Ping'
     calc_msg = f'calc [currentLvl] [targetLvl] [current%]* [target%]* \n     (current% and target% are optionals)'
     invite_msg = f"invite : Send Bot's Invite Link to DM"
-    guide = f'guide : show a guide for tailoring skill (up to Lv. 92)'
-    help_msg = ping_msg + '\n' + calc_msg +'\n' + guide + '\n' + invite_msg
+    #guide = f'guide : show a guide for tailoring skill (up to Lv. 92)'
+    help_msg = ping_msg + '\n' + calc_msg +'\n' + '\n' + invite_msg
     await ctx.send(help_msg)
 
 @bot.command()
