@@ -2,6 +2,7 @@ import psycopg2
 from psycopg2 import Error
 import os
 
+
 # Connect to an existing database
 db_user = os.environ.get("DB_USER")
 db_pw = os.environ.get("DB_PW")
