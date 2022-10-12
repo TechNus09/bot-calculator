@@ -21,7 +21,7 @@ combat={
     "Anubis" : 4000 ,"Cactus Soldier" : 2800 ,"Arosite Scarab" : 2850 ,"Magnetite Scarab" : 4250 ,"Anubis Elite" : 7500 ,
 
     "Luminant Slime" : 2200 ,"Golemite Bat" : 4400 ,"Golemite Fiend" : 5270 ,"Baby Dragon" : 5750 ,
-    "Juvenile Venomling" : 2300 , "Corrupted Venomling" : 4150 , "Tormented Venomling" : 7600 , "Rageful Venomling" : 9500 , "Disdained Venomling" : 15000 ,
+    "Juvenile Venomling" : 2300 , "Corrupted Venomling" : 4150 , "Tormented Venomling" : 7600 , "Rageful Venomling" : 9500 , "Disdained Venomling" : 15000 , "Nydarax" : 1 ,
 
     "War Bat" : 1200 ,"Rock Demon" : 10000 ,"Ice Demon" : 16500 ,"Shadow Demon": 	20000,"Ancient War Bat" : 12000 ,"Spinus" : 8500 ,"Reanimated Soul" : 1000 ,"Mummy" : 20000 ,"Golem" : 22500 ,"Umbra" : 24000 ,
     }
@@ -50,7 +50,7 @@ crypts_of_nydarax = [
     ]
 bosses = [
     ['War Bat', 922919365995810836], ['Rock Demon', 922919363508600862], ['Ice Demon', 922919354151096370], ['Shadow Demon', 922926354171826247], ['Ancient War Bat', 922919347335335986],
-    ['Spinus', 922919365303750736], ['Reanimated Soul', 922927550857105448], ['Mummy', 922919357976293376], ['Golem', 922919350711779388], ['Umbra', 922919365840617502]
+    ['Spinus', 922919365303750736], ['Reanimated Soul', 922927550857105448], ['Mummy', 922919357976293376], ['Golem', 922919350711779388], ['Umbra', 922919365840617502], ["Nydarax", 1029716361074720818]
     ]
 
 locations = ["Bright Leaf","Wintermist","Desert","Varaxite","Crypts of Nydarax","Bosses"]
