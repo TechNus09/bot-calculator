@@ -21,6 +21,7 @@ combat={
     "Anubis" : 4000 ,"Cactus Soldier" : 2800 ,"Arosite Scarab" : 2850 ,"Magnetite Scarab" : 4250 ,"Anubis Elite" : 7500 ,
 
     "Luminant Slime" : 2200 ,"Golemite Bat" : 4400 ,"Golemite Fiend" : 5270 ,"Baby Dragon" : 5750 ,
+    "Juvenile Venomling" : 2300 , "Corrupted Venomling" : 4150 , "Tormented Venomling" : 7600 , "Rageful Venomling" : 9500 , "Disdained Venomling" : 15000 ,
 
     "War Bat" : 1200 ,"Rock Demon" : 10000 ,"Ice Demon" : 16500 ,"Shadow Demon": 	20000,"Ancient War Bat" : 12000 ,"Spinus" : 8500 ,"Reanimated Soul" : 1000 ,"Mummy" : 20000 ,"Golem" : 22500 ,"Umbra" : 24000 ,
     }
@@ -43,16 +44,20 @@ desert = [
 varaxite = [
     ['Luminant Slime', 922919355946266624], ['Golemite Bat', 922919351357698079], ['Golemite Fiend', 922919353207382079], ['Baby Dragon', 922919347494744105]
     ]
+crypts_of_nydarax = [
+    ["Juvenile Venomling",1029709572979568680]  , ["Corrupted Venomling",1029709572979568680]  , ["Tormented Venomling",1029709572979568680] ,
+    ["Rageful Venomling",1029709572979568680]  , ["Disdained Venomling",1029709572979568680]
+    ]
 bosses = [
     ['War Bat', 922919365995810836], ['Rock Demon', 922919363508600862], ['Ice Demon', 922919354151096370], ['Shadow Demon', 922926354171826247], ['Ancient War Bat', 922919347335335986],
     ['Spinus', 922919365303750736], ['Reanimated Soul', 922927550857105448], ['Mummy', 922919357976293376], ['Golem', 922919350711779388], ['Umbra', 922919365840617502]
     ]
 
-locations = ["Bright Leaf","Wintermist","Desert","Varaxite","Bosses"]
+locations = ["Bright Leaf","Wintermist","Desert","Varaxite","Crypts of Nydarax","Bosses"]
 
 skills = ['Combat','Mining','Smithing','Woodcutting','crafting','Fishing','Cooking','Tailoring']
 
-combatRsc=[bright_leaf,wintermist,desert,varaxite,bosses]
+combatRsc=[bright_leaf,wintermist,desert,varaxite,crypts_of_nydarax,bosses]
 miningRsc = [
     ['Tin Ore', 922854986357043280], ['Copper Ore', 922855022180577290], ['Iron Ore', 922855050156585020], ['Salt', 922855080099729429], ['Coal', 922855065990099004],
     ['Silver Ore', 922855652198592586], ['Crimsteel Ore', 922855136513126460], ['Gold Ore', 922855152073981952], ['Pink Salt', 922855174563831829], ['Mythan Ore', 922855187343884341],
@@ -130,23 +135,23 @@ skills_id = {
     'Sailing':937013045404786758
     }
 tlr_ess = {#Tome : [ess_amount,relic_type,relic_emoji_id]
-       'Ember Tome':[1,"Fire Relic",922857046913716286],
-       'Leech Tome':[1,"Nature Relic",922871202979135531],
-       'Haunt Tome':[1,"Cursed Relic",922857046934708235],
-       'Fire Staff':[25,"Fire Relic",922857046913716286],
-       'Ice Staff':[25,"Ice Relic",936964378517975040], 
-       'Nature Staff':[25,"Nature Relic",922871202979135531],
-       'Cursed Staff':[25,"Cursed Relic",922857046934708235],
-       'Icicle Tome':[1,"Ice Relic",936964378517975040],
-       'Ignite Tome':[5,"Fire Relic",922857046913716286], 
-       'Drain Tome':[3,"Nature Relic",922871202979135531],
-       'Curse Tome':[3,"Cursed Relic",922857046934708235],
-       'Freeze Tome':[3,"Ice Relic",936964378517975040],
-       'Inferno Tome':[10,"Fire Relic",922857046913716286], 
-       'Consume Tome':[6,"Nature Relic",922871202979135531],
-       'Torture Tome':[6,"Cursed Relic",922857046934708235],
-       'Blizzard Tome':[6,"Ice Relic",936964378517975040]
-   }
+        'Ember Tome':[1,"Fire Relic",922857046913716286],
+        'Leech Tome':[1,"Nature Relic",922871202979135531],
+        'Haunt Tome':[1,"Cursed Relic",922857046934708235],
+        'Fire Staff':[25,"Fire Relic",922857046913716286],
+        'Ice Staff':[25,"Ice Relic",936964378517975040], 
+        'Nature Staff':[25,"Nature Relic",922871202979135531],
+        'Cursed Staff':[25,"Cursed Relic",922857046934708235],
+        'Icicle Tome':[1,"Ice Relic",936964378517975040],
+        'Ignite Tome':[5,"Fire Relic",922857046913716286], 
+        'Drain Tome':[3,"Nature Relic",922871202979135531],
+        'Curse Tome':[3,"Cursed Relic",922857046934708235],
+        'Freeze Tome':[3,"Ice Relic",936964378517975040],
+        'Inferno Tome':[10,"Fire Relic",922857046913716286], 
+        'Consume Tome':[6,"Nature Relic",922871202979135531],
+        'Torture Tome':[6,"Cursed Relic",922857046934708235],
+        'Blizzard Tome':[6,"Ice Relic",936964378517975040]
+    }
 
 
 resources = {
